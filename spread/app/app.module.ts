@@ -3,9 +3,12 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { NativeScriptFormsModule } from "nativescript-angular/forms";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { CoreModule } from './services/services.module';
 
 import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
+
+import { CustomerService, FireBaseService } from './services';
 
 @NgModule({
     bootstrap: [
@@ -14,14 +17,15 @@ import { RegisterComponent } from "./pages/auth/signup/register";
     imports: [
         NativeScriptModule,
         NativeScriptFormsModule,
-        AppRoutingModule
+        AppRoutingModule,
+        CoreModule
     ],
     declarations: [
         AppComponent,
         LoginComponent,
         RegisterComponent        
     ],
-    providers: [],
+    providers: [ ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

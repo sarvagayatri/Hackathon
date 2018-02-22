@@ -6,23 +6,23 @@
         <StackLayout margin="10" verticalAlignment="center">
             <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
                 <StackLayout class="input-field">
-                    <Label text="First Name" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="input.firstname"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-                <StackLayout class="input-field">
-                    <Label text="Last Name" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="input.lastname"></TextField>
+                    <Label text="Name" class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" [(ngModel)]="customer.name"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
                 <StackLayout class="input-field">
                     <Label text="Email" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="input.email"></TextField>
+                    <TextField class="input" [(ngModel)]="customer.email"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Mobile Number" class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" [(ngModel)]="customer.mobileNumber"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
                 <StackLayout class="input-field">
                     <Label text="Password" class="label font-weight-bold m-b-5"></Label>
-                    <TextField secure="true" class="input" [(ngModel)]="input.password"></TextField>
+                    <TextField secure="true" class="input" [(ngModel)]="password"></TextField>
                     <StackLayout class="hr-light"></StackLayout>
                 </StackLayout>
                 <Button class="btn btn-primary w-full" text="Register" (tap)="register()"></Button>

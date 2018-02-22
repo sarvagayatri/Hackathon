@@ -2,7 +2,6 @@ import { Address } from './';
 
 export class Customer {
     id: string = "";
-    isActive: boolean = true;
     name: string = "";
     nameLowerCase: string = "";
     email: string = "";
