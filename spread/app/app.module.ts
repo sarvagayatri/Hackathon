@@ -8,6 +8,9 @@ import { CoreModule } from './services/services.module';
 import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
 import { WorkshopComponent } from "./pages/workshops/workshop-reg";
+import { SkillComponent } from "./pages/skill/skill";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
+import { ModalComponent } from "./pages/skill/modal-dailog";
 
 import { CustomerService, FireBaseService } from './services';
 
@@ -25,9 +28,13 @@ import { CustomerService, FireBaseService } from './services';
         AppComponent,
         LoginComponent,
         RegisterComponent,
-        WorkshopComponent    
+        WorkshopComponent ,   
+        ModalComponent
     ],
-    providers: [ ],
+    entryComponents: [ModalComponent],
+    providers: [
+        ModalDialogService
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]
