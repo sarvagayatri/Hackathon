@@ -7,6 +7,9 @@ import { CoreModule } from './services/services.module';
 
 import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
+import { SkillComponent } from "./pages/skill/skill";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
+import { ModalComponent } from "./pages/skill/modal-dailog";
 
 import { CustomerService, FireBaseService } from './services';
 
@@ -23,9 +26,14 @@ import { CustomerService, FireBaseService } from './services';
     declarations: [
         AppComponent,
         LoginComponent,
-        RegisterComponent        
+        RegisterComponent,
+        SkillComponent,
+        ModalComponent
     ],
-    providers: [ ],
+    entryComponents: [ModalComponent],
+    providers: [
+        ModalDialogService
+    ],
     schemas: [
         NO_ERRORS_SCHEMA
     ]

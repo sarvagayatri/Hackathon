@@ -1,0 +1,16 @@
+<DockLayout stretchLastChild="true">
+    <Label dock="top" text="&#xf057;" (tap)="close('')" class="m-5 text-right t-20 fa c-blue"></Label>
+    <StackLayout width="250" height="300">
+        <ScrollView class="drawer-content">
+            <StackLayout class="drawer-links" orientation="vertical">
+                <StackLayout class="drawer-link" *ngFor="let category of categories;let i = index;" (tap)="changeAction(category)" orientation="horizontal">
+                    <GridLayout rows="auto" columns="15,auto,*">
+                        <!-- <Label col="0" text="&#xf111;" style="font-size:16;font-weight:bold;" class="fa c-blue" *ngIf="category.isSelected"></Label> -->
+                        <Label col="1" [text]="category" style="margin-left:16;" class="t-12"></Label>
+                        <!-- <Label col="2" [text]="category.itemsCount" style="text-align:right;" [ngClass]="category.isSelected ? 'preselect' : ''"></Label> -->
+                    </GridLayout>
+                </StackLayout>
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</DockLayout>
