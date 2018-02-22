@@ -7,6 +7,7 @@ import { CoreModule } from './services/services.module';
 
 import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
+import { WorkshopComponent } from "./pages/workshops/workshop-reg";
 
 import { CustomerService, FireBaseService } from './services';
 
@@ -23,7 +24,8 @@ import { CustomerService, FireBaseService } from './services';
     declarations: [
         AppComponent,
         LoginComponent,
-        RegisterComponent        
+        RegisterComponent,
+        WorkshopComponent    
     ],
     providers: [ ],
     schemas: [

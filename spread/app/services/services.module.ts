@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 // app
 import { BaseConfig } from './../common/base-config'
-import { FireBaseService, CustomerService, UserService } from "./";
+import { FireBaseService, CustomerService, UserService, WorkshopService } from "./";
 import { ApplicationStateService } from "./../common";
 
 
@@ -15,7 +15,8 @@ import { ApplicationStateService } from "./../common";
         BaseConfig,
         CustomerService,
         FireBaseService,
-        UserService
+        UserService,
+        WorkshopService
     ],
 })
 export class CoreModule { }

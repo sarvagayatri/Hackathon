@@ -1,3 +1,4 @@
 export const DB_PATH = {
-    CUSTOMER: "Customer"
+    CUSTOMER: "Customer",
+    WORKSHOPS: "Workshops"
 }
