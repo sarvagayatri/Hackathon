@@ -5,6 +5,7 @@ import * as ApplicationSettings from "application-settings";
 import { CustomerService, FireBaseService, UserService } from './../../../services'
 import * as firebase from "nativescript-plugin-firebase";
 import { ApplicationStateService } from './../../../common';
+
 @Component({
     moduleId: module.id,
     selector: "ns-login",
@@ -46,10 +47,9 @@ export class LoginComponent implements OnInit {
         if (this.userName && this.password) {
             this.userService.login(this.userName, this.password).then((response) => {
                 console.log("response::", JSON.stringify(response));
-                this.customerService.getCustomer(response.id).then(result => {
+                this.customerService.getCustomer(response.uid).then(result => {
                     this.appState.customer = result;
-                    console.log("appstate::", this.appState.customer);
-                    console.log("user::", JSON.stringify(result));
+                    this.router.navigate(["/worshopReg"], { clearHistory: true });
                 });
             }).catch((error) => {
                 (new SnackBar()).simple("Login Failed..! User Doesn't Exists or Password wrong.");
