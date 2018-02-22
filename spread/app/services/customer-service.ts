@@ -26,4 +26,14 @@ export class CustomerService {
 
         });
     }
+
+    getCustomer(uid): Promise<Customer> {
+        let dbPath = `${DB_PATH.CUSTOMER}/${uid}`;
+        return this.firebaseService.getDetailsByQuery(dbPath).then((result) => {
+            console.log("getcustomer::", JSON.stringify(result));
+            if (!result.error && result.value) {
+                return result.value;
+            }
+        });
+    }
 }

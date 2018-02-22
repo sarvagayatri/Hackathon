@@ -81,7 +81,7 @@ export class FireBaseService {
                 if (data.loggedIn) {
                 }
             },
-            storageBucket: this.baseConfig.current.firebaseStorageBucketName
+            // storageBucket: this.baseConfig.current.firebaseStorageBucketName
         }).then((instance) => {
             var token = com.google.firebase.iid.FirebaseInstanceId.getInstance().getToken();
             token = token || '';
