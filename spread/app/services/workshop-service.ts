@@ -10,8 +10,9 @@ export class WorkshopService {
     save(workshop: Workshop): Promise<any> {
         workshop.cityLowercase = workshop.city && workshop.city.toLowerCase();
         workshop.createdDate = new Date().getTime();
-        let path = `${DB_PATH.WORKSHOPS}/${workshop.cityLowercase}/${workshop.category}`;
-        return this.firebaseService.setValue(path, workshop);
+        workshop.categoryLowercase = workshop.category && workshop.category.toLocaleLowerCase();
+        let path = `${DB_PATH.WORKSHOPS}/${workshop.cityLowercase}`;
+        return this.firebaseService.insert(path, workshop);
     }
 
     // getCustomer(uid): Promise<Customer> {
@@ -22,4 +23,13 @@ export class WorkshopService {
     //         }
     //     });
     // }
+    getWorkshopDetails(city: string, category: string): Promise<any> {
+        let dbPath = `${DB_PATH.WORKSHOPS}/${city}`;
+        let searchFieldName = "categoryLowercase";
+        return this.firebaseService.getDetailsByQuery(dbPath,searchFieldName,category).then((result) => {
+            if (!result.error && result.value) {
+                return result.value;
+            }
+        });
+    }
 }

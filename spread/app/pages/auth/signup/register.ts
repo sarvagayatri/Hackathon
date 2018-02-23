@@ -5,6 +5,7 @@ import * as ApplicationSettings from "application-settings";
 import { Customer } from './../../../entities';
 import { CustomerService } from './../../../services'
 
+
 @Component({
     moduleId: module.id,
     selector: "ns-register",

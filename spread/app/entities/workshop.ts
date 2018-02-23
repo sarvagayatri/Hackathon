@@ -7,6 +7,7 @@ export class Workshop {
     contactNumber: string = "";
     preRequisites: string = "";
     category: string = "";
+    categoryLowercase : string = "";
     city: string = "";
     cityLowercase: string = "";
     createdDate: number;

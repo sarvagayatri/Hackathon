@@ -1,0 +1,24 @@
+<ActionBar title="{N} Login Example">
+    <NavigationButton text="Back" ios.position="left"></NavigationButton>
+</ActionBar>
+<GridLayout backgroundColor="#CCCCCC">
+    <ScrollView>
+        <StackLayout margin="10" verticalAlignment="center">
+          <ListView [items]="workshops" class="list-group">
+              <ng-template let-item="item">
+                <StackLayout>
+                  <Label [text]="item.title" class="list-group-item"></Label>
+                  <Label [text]="item.who" class="list-group-item"></Label>
+                  <Label [text]="item.dateTime" class="list-group-item"></Label>
+                  <Label [text]="item.address" class="list-group-item"></Label>
+                  <Label [text]="item.fee" class="list-group-item"></Label>
+                  <Label [text]="item.contactNumber" class="list-group-item"></Label>
+                  <Label [text]="item.city" class="list-group-item"></Label>
+                  <Label [text]="item.preRequisites" class="list-group-item"></Label>
+                  
+                </StackLayout>
+              </ng-template>
+          </ListView>
+        </StackLayout>
+    </ScrollView>
+</GridLayout>
