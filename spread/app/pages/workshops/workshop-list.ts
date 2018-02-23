@@ -20,7 +20,7 @@ export class WorkshopListComponent {
         this.workshopService.getWorkshopDetails(city, category).then((result) => {
             // console.log("result::", JSON.stringify(result));
             this.workshops = toCustomArray(result);
-            console.log("workshops::", JSON.stringify(this.workshops));
+            // console.log("workshops::", JSON.stringify(this.workshops));
             
         })
     }

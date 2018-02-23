@@ -5,6 +5,7 @@ import { Customer } from './../entities';
 export class ApplicationStateService {
 
     customer: Customer;
+    userId: string;
 
     constructor() {
         this.customer = new Customer();

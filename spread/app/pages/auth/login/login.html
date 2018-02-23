@@ -1,7 +1,7 @@
 <ActionBar title="{N} Login Example"></ActionBar>
 <GridLayout backgroundColor="#CCCCCC">
     <ScrollView>
-        <StackLayout margin="10" verticalAlignment="center">
+        <StackLayout margin="10" verticalAlignment="center" *ngIf="displayStatus">
             <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
                 <StackLayout class="input-field">
                     <Label text="Email" class="label font-weight-bold m-b-5"></Label>

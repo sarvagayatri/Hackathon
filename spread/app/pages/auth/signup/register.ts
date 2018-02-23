@@ -4,6 +4,7 @@ import { SnackBar } from "nativescript-snackbar";
 import * as ApplicationSettings from "application-settings";
 import { Customer } from './../../../entities';
 import { CustomerService } from './../../../services'
+import { CacheManager } from "../../../common/cache-manager";
 
 
 @Component({
@@ -22,7 +23,7 @@ export class RegisterComponent {
     public register() {
         if (this.customer.name && this.customer.email && this.customer.mobileNumber && this.password) {
             this.customerService.save(this.customer, this.password).then((result) => {
-                ApplicationSettings.setString("account", JSON.stringify(this.customer));
+                CacheManager.set("account", JSON.stringify(this.customer));
                 this.location.back();
             });
 

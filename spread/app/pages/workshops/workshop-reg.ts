@@ -25,7 +25,8 @@ export class WorkshopComponent {
             categoryLowercase: "",
             city: "Mumbai",
             cityLowercase: "",
-            createdDate: new Date().getTime()
+            createdDate: new Date().getTime(),
+            rating: 0
         }
     }
     registerWorkshop() {
