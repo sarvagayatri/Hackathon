@@ -11,6 +11,52 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import 'nativescript-theme-core/css/core.light.css';
 
+
+ActionBar {
+    background-color: #2196f3;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-weight: bold;
+}
+.drawer-content {
+    background-color: #fff;
+    color: black;
+}
+
+    .drawer-content .drawer-header {
+        height:auto;
+        /* height: 160-dip; */
+        background-color: #2a2c43;
+        background-image: url("res://screen1");
+        margin-bottom: 7-px;
+        background-repeat: no-repeat;
+    }
+
+    .drawer-content .drawer-links .drawer-link {
+        font-size: 13-px;
+        padding: 15-dip;
+    }
+
+        .drawer-content .drawer-links .drawer-link .drawer-icon {
+            font-size: 17;
+            margin-right: 20-px;
+            font-family: "FontAwesome";
+        }
+
+        .drawer-content .drawer-links .drawer-link .text {
+            margin-left: 50-px;
+        }
+
+    .drawer-content .drawer-links .current {
+        background-color: #dddddd;
+    }
+
+    .drawer-content .drawer-separator {
+        height: 5-px;
+        background-color: #dddddd;
+        margin: 20-px 0;
+    }
+
 .w-80{
     width:80%;
 }

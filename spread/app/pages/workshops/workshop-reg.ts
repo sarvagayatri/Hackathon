@@ -1,18 +1,21 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Customer, Workshop } from './../../entities';
 import { WorkshopService } from './../../services'
 import { RouterExtensions } from "nativescript-angular/router";
+import { DrawerPage } from "./../../shared/drawer.page";
+
 
 @Component({
     moduleId: module.id,
     selector: "ns-login",
     templateUrl: "workshop-reg.html",
 })
-export class WorkshopComponent {
+export class WorkshopComponent extends DrawerPage {
     workshop: Workshop = new Workshop();
-
-    constructor(private workshopService: WorkshopService,
+    constructor(private changeDetectorRef: ChangeDetectorRef,
+        private workshopService: WorkshopService,
         private router: RouterExtensions) {
+        super(changeDetectorRef);
         this.workshop = {
             title: "Join C#",
             who: "Gayatri",
