@@ -1,0 +1,75 @@
+
+.homeIcon{
+         color:#9758d9;
+}
+.myOrdersIcon{
+         color:#8cc15c;
+}
+.notificationsIcon{
+         color:#32afbe;
+}
+.aboutUsIcon{
+        color:#663399;
+}
+.contactUsIcon{
+          color:rgb( 243, 156, 18 );;
+}
+.referrelIcon{
+          color:rgb( 13, 156, 18 );;
+}
+.logoutIcon{
+         color:orchid;
+}
+.privacyIcon{
+         color:tomato;
+}
+.profileIcon{
+    color:#fff;
+    margin-right: 10;
+    font-size: 15;
+    padding: 10;
+    text-align: center;
+    width: 40;
+    height: 40;
+    border-radius: 30;
+    background-color:#bb77ff;
+}
+.profileDpIcon{
+    color:#fff;
+    margin-right: 10;
+    font-size: 15;
+    width: 40;
+    height: 40;
+    border-radius: 30;
+    background-color:#bb77ff;
+}
+.email{
+    margin-top: 15;
+}
+.walletMoney{
+    margin-top: 19;
+    font-weight: bold;    
+}
+.fontcash{
+    font-family: "FallingSkyLight";
+    font-size: 20;
+}
+.version{
+    font-size:10;
+    text-align: center;
+    margin: 15;
+}
+.versionText{
+    font-weight: bold;
+    font-size: 15;
+}
+.earnMoney{
+    background-color: #3f51b5;
+    border-radius: 250;
+    margin-left:10;
+    padding: 4;
+    color:#fff;
+    top:2;
+    font-weight: bold;
+    font-size: 10;
+}

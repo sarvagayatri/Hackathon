@@ -9,6 +9,7 @@ import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
 import { WorkshopComponent } from "./pages/workshops/workshop-reg";
 import { WorkshopListComponent } from "./pages/workshops/workshop-list";
+import { SharedModule } from './shared/shared.module';
 
 import { SkillComponent } from "./pages/skill/skill";
 // import { ModalDialogService } from "nativescript-angular/modal-dialog";
@@ -24,6 +25,7 @@ import { CustomerService, FireBaseService } from './services';
         NativeScriptModule,
         NativeScriptFormsModule,
         AppRoutingModule,
+        SharedModule,
         CoreModule
     ],
     declarations: [
