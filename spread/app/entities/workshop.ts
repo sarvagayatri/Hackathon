@@ -1,4 +1,5 @@
 export class Workshop {
+    id: string = "";
     title: string = "";
     who: string = "";
     dateTime: string = "";

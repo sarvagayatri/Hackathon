@@ -27,11 +27,14 @@ export class LoginComponent implements OnInit {
     }
 
     public ngOnInit() {
-        this.initFirebase().then(() => {
-            this.checkUserLoggedIn();
-        }).catch((error) => {
-            this.checkUserLoggedIn();
+        return this.initFirebase().then(() => {
+            CacheManager.remove('account');
         });
+        // .then(() => {
+        //     this.checkUserLoggedIn();
+        // }).catch((error) => {
+        //     this.checkUserLoggedIn();
+        // });
     }
     checkUserLoggedIn() {
         let customer = CacheManager.get('account');

@@ -17,6 +17,7 @@ export class WorkshopComponent extends DrawerPage {
         private router: RouterExtensions) {
         super(changeDetectorRef);
         this.workshop = {
+            id: "",
             title: "Join C#",
             who: "Gayatri",
             dateTime: "Feb 23rd,2018 11.00 AM",
