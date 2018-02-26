@@ -3,6 +3,8 @@ import { Customer, Workshop } from './../../entities';
 import { WorkshopService } from './../../services'
 import { toCustomArray } from './../../common'
 import { DrawerPage } from "./../../shared/drawer.page";
+import { RouterExtensions } from "nativescript-angular/router";
+
 
 @Component({
     moduleId: module.id,
@@ -13,7 +15,8 @@ export class WorkshopListComponent extends DrawerPage {
     workshops: Array<Workshop> = [];
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
-        private workshopService: WorkshopService
+        private workshopService: WorkshopService,
+        private router: RouterExtensions
     ) {
         super(changeDetectorRef);
     }
@@ -28,5 +31,9 @@ export class WorkshopListComponent extends DrawerPage {
             // console.log("workshops::", JSON.stringify(this.workshops));
 
         })
+    }
+    navigation() {
+        this.router.navigate(["/workshop-willing"]);
+
     }
 }
