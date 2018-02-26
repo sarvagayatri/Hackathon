@@ -1,30 +1,16 @@
 
 .homeIcon{
-         color:#9758d9;
+         color:#fc7b5c;
 }
-.myOrdersIcon{
-         color:#8cc15c;
-}
-.notificationsIcon{
-         color:#32afbe;
-}
-.aboutUsIcon{
-        color:#663399;
-}
-.contactUsIcon{
-          color:rgb( 243, 156, 18 );;
-}
-.referrelIcon{
-          color:rgb( 13, 156, 18 );;
+.workshop{
+         color:#fc7b5c;
 }
 .logoutIcon{
-         color:orchid;
+         color:#fc7b5c;
 }
-.privacyIcon{
-         color:tomato;
-}
+
 .profileIcon{
-    color:#fff;
+    color:#fc7b5c;
     margin-right: 10;
     font-size: 15;
     padding: 10;
