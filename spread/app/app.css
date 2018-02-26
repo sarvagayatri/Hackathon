@@ -123,6 +123,9 @@ ActionBar {
     .c-bg-gray{
         background-color: #cdd5d8;
     }
+    .c-blue {
+        color: #32b5ec;
+    }
     .c-white {
         color: #fff;
     }
@@ -152,6 +155,9 @@ ActionBar {
 }
 .m-5{
     margin: 5;
+}
+.m-l-5{
+    margin-left: 5;
 }
 .m-b-2{
     margin-bottom: 2;
