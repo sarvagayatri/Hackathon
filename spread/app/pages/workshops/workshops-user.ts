@@ -23,15 +23,7 @@ export class UserWorkshopsComponent extends DrawerPage {
     }
 
     ngOnInit() {
-        this.initFirebase().then(() => {
             this.geCustomertWorkshops();
-        });
-    }
-    private initFirebase() {
-        return this.fireBaseService.initFirebase().then((instance) => {
-        }).catch((errorMessage) => {
-            console.log("error in login initfirebase::", errorMessage);
-        });
     }
     geCustomertWorkshops() {
         this.workshopService.getCustomerWorkshops('dkrITPu3B4b48O9CmcdG7YtzzB32').then(workshops => {
