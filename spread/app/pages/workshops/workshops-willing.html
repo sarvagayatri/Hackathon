@@ -1,0 +1,16 @@
+<ActionBar>
+	<NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
+	<ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
+	</ActionItem>
+	<Label class="action-bar-title" text="Workshops Willing"></Label>
+</ActionBar>
+<RadSideDrawer #drawerComponent tkToggleNavButton>
+    <ScrollView tkDrawerContent class="drawer-content">
+        <StackLayout horizontalAlignment="left">
+            <drawer-content></drawer-content>
+        </StackLayout>
+    </ScrollView>
+    <DockLayout tkMainContent>
+<Label text="Workshops willing page" textWrap="true"></Label>
+</DockLayout>
+</RadSideDrawer>

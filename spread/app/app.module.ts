@@ -10,6 +10,9 @@ import { RegisterComponent } from "./pages/auth/signup/register";
 import { WorkshopComponent } from "./pages/workshops/workshop-reg";
 import { WorkshopListComponent } from "./pages/workshops/workshop-list";
 import { SharedModule } from './shared/shared.module';
+import {ProfileComponent} from './pages/auth/profile/profile'
+import { UserWorkshopsComponent } from "./pages/workshops/workshops-user";
+import { WorkshopsWillingComponent } from "./pages/workshops/workshops-willing";
 
 import { SkillComponent } from "./pages/skill/skill";
 // import { ModalDialogService } from "nativescript-angular/modal-dialog";
@@ -34,7 +37,10 @@ import { CustomerService, FireBaseService } from './services';
         RegisterComponent,
         WorkshopComponent,
         ModalComponent,
-        WorkshopListComponent
+        WorkshopListComponent,
+        ProfileComponent,
+        UserWorkshopsComponent,
+        WorkshopsWillingComponent
     ],
     entryComponents: [ModalComponent],
     providers: [

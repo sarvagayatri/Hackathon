@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     checkUserLoggedIn() {
         let customer = CacheManager.get('account');
         // this.appState.customer = customer;
-        this.router.navigate(["/worshopList"], { clearHistory: true });
+        this.router.navigate(["/workshopList"], { clearHistory: true });
     }
     private initFirebase() {
         return this.fireBaseService.initFirebase().then((instance) => {
@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
                 this.customerService.getCustomer(response.uid).then(result => {
                     this.appState.customer = result;
                     CacheManager.set("account", JSON.stringify(result));
-                    this.router.navigate(["/worshopReg"], { clearHistory: true });
+                    this.router.navigate(["/workshopList"], { clearHistory: true });
                 });
             }).catch((error) => {
                 (new SnackBar()).simple("Login Failed..! User Doesn't Exists or Password wrong.");

@@ -11,6 +11,8 @@ export class Workshop {
     categoryLowercase: string = "";
     city: string = "";
     cityLowercase: string = "";
+    createdBy: string = "";
     createdDate: number;
+    interestedCandidates: Array<string>;
     rating: number;
 }

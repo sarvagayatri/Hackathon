@@ -1,5 +1,5 @@
 <GridLayout class="drawer-header" (tap)="profileNavigation()">
-    <!-- <StackLayout class="p-10 m-10" *ngIf="appState.customer?.name">
+    <StackLayout class="p-10 m-10" *ngIf="appState.customer?.name">
         <StackLayout orientation="horizontal">
             <Label [text]="appState.customer.name.toUpperCase()[0]" textWrap="true" class="drawer-icon profileIcon"></Label>
             <StackLayout class="m-t-10">
@@ -8,8 +8,8 @@
             </StackLayout>
             <Label text="&#xf105;" style="font-weight: bold;" class="fa c-white text-right p-20 m-l-10 t-20"></Label>
         </StackLayout>
-    </StackLayout> -->
-     <StackLayout class="p-10 m-10">
+    </StackLayout>
+     <!-- <StackLayout class="p-10 m-10">
         <StackLayout orientation="horizontal">
             <Label text="V" textWrap="true" class="drawer-icon profileIcon"></Label>
             <StackLayout class="m-t-10">
@@ -18,33 +18,39 @@
             </StackLayout>
             <Label text="&#xf105;" style="font-weight: bold;" class="fa c-white text-right p-20 m-l-10 t-20"></Label>
         </StackLayout>
-    </StackLayout>
+    </StackLayout> -->
     <!-- <StackLayout class="p-10 m-t-25" *ngIf="!appState.customer?.name">
         <Label text="Loading Please wait..." class="text-left email c-white t-15"></Label>
     </StackLayout> -->
 </GridLayout>
 <StackLayout class="drawer-links" orientation="vertical">
-    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('services-home')">
+    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('workshopList')">
         <Label text="&#xf015;" alignSelf="center" textWrap="true" class="drawer-icon  homeIcon"></Label>
         <Label class="text" text="Home"></Label>
     </StackLayout>
     <StackLayout class="drawer-separator">
     </StackLayout>
-    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('my-orders')">
+    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('profile')">
         <Label text="&#xf007;" alignSelf="center" textWrap="true" class="drawer-icon  myOrdersIcon"></Label>
         <Label class="text" text="Profile"></Label>
     </StackLayout>
     <StackLayout class="drawer-separator">
     </StackLayout>
-    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('notifications')">
-        <Label text="&#xf0f3;" alignSelf="center" textWrap="true" class="drawer-icon  notificationsIcon"></Label>
-        <Label class="text" text="Your Workshops"></Label>
+    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('workshopReg')">
+        <Label text="&#xf007;" alignSelf="center" textWrap="true" class="drawer-icon  myOrdersIcon"></Label>
+        <Label class="text" text="Add Workshop"></Label>
     </StackLayout>
     <StackLayout class="drawer-separator">
     </StackLayout>
-    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('contact-us')">
+    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('workshops-user')">
+        <Label text="&#xf0f3;" alignSelf="center" textWrap="true" class="drawer-icon  notificationsIcon"></Label>
+        <Label class="text" text="My Workshops"></Label>
+    </StackLayout>
+    <StackLayout class="drawer-separator">
+    </StackLayout>
+    <StackLayout class="drawer-link" orientation="horizontal" (tap)="accountNavigation('workshop-willing')">
         <Label text="&#xf098;" alignSelf="center" textWrap="true" class="drawer-icon  contactUsIcon"></Label>
-        <Label class="text" text="Intersted workshops"></Label>
+        <Label class="text" text="Interested workshops"></Label>
     </StackLayout>
     <StackLayout class="drawer-separator">
     </StackLayout>

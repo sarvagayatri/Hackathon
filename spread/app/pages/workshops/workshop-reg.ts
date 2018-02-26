@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Customer, Workshop } from './../../entities';
-import { WorkshopService } from './../../services'
+import { WorkshopService, FireBaseService } from './../../services'
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerPage } from "./../../shared/drawer.page";
-
+import { ApplicationStateService } from "../../common";
 
 @Component({
     moduleId: module.id,
@@ -14,7 +14,9 @@ export class WorkshopComponent extends DrawerPage {
     workshop: Workshop = new Workshop();
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
-        private router: RouterExtensions) {
+        private router: RouterExtensions,
+        private appState: ApplicationStateService,
+    private fireBaseService: FireBaseService) {
         super(changeDetectorRef);
         this.workshop = {
             id: "",
@@ -29,14 +31,17 @@ export class WorkshopComponent extends DrawerPage {
             categoryLowercase: "",
             city: "Mumbai",
             cityLowercase: "",
+            createdBy: 'dkrITPu3B4b48O9CmcdG7YtzzB32',//this.appState.customer.id,
             createdDate: new Date().getTime(),
+            interestedCandidates: [],
             rating: 0
         }
+
     }
     registerWorkshop() {
         this.workshopService.save(this.workshop).then((result) => {
             console.log("insert result success");
-            this.router.navigate(["/worshopList"], { clearHistory: true });
+            this.router.navigate(["/workshopList"], { clearHistory: true });
 
         })
     }

@@ -6,18 +6,25 @@ import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
 import { WorkshopComponent } from "./pages/workshops/workshop-reg";
 import { WorkshopListComponent } from "./pages/workshops/workshop-list";
+import { ProfileComponent } from './pages/auth/profile/profile'
 
 import { SkillComponent } from "./pages/skill/skill";
+import { UserWorkshopsComponent } from "./pages/workshops/workshops-user";
+import { WorkshopsWillingComponent } from "./pages/workshops/workshops-willing";
 // import { SecureComponent } from "./components/secure/secure.component";
 
 const routes: Routes = [
     { path: "", redirectTo: "/login", pathMatch: "full" },
     { path: "login", component: LoginComponent },
     { path: "register", component: RegisterComponent },
-    { path: "worshopReg", component: WorkshopComponent },
-    { path: "worshopList", component: WorkshopListComponent },
+    { path: "workshopReg", component: WorkshopComponent },
+    { path: "workshopList", component: WorkshopListComponent },
+    { path: "profile", component: ProfileComponent },
+    { path: "workshops-user", component: UserWorkshopsComponent },
+    { path: "workshop-willing", component: WorkshopsWillingComponent },
     
-    
+
+
     // { path: "", component: SkillComponent },
 ];
 

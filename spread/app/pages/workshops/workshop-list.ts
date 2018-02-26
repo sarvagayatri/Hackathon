@@ -1,27 +1,32 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Customer, Workshop } from './../../entities';
 import { WorkshopService } from './../../services'
 import { toCustomArray } from './../../common'
+import { DrawerPage } from "./../../shared/drawer.page";
+
 @Component({
     moduleId: module.id,
     selector: "ns-login",
     templateUrl: "workshop-list.html",
 })
-export class WorkshopListComponent {
+export class WorkshopListComponent extends DrawerPage {
     workshops: Array<Workshop> = [];
 
-    constructor(private workshopService: WorkshopService) {
+    constructor(private changeDetectorRef: ChangeDetectorRef,
+        private workshopService: WorkshopService
+    ) {
+        super(changeDetectorRef);
     }
     public ngOnInit() {
         return this.getWorkshopDetails("mumbai", "education");
     }
 
     getWorkshopDetails(city: string, category: string) {
-        this.workshopService.getWorkshopDetails(city, category).then((result) => {
+        this.workshopService.getWorkshopDetailsByCityCategory(city, category).then((result) => {
             // console.log("result::", JSON.stringify(result));
             this.workshops = toCustomArray(result);
             // console.log("workshops::", JSON.stringify(this.workshops));
-            
+
         })
     }
 }

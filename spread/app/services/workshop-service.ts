@@ -12,9 +12,9 @@ export class WorkshopService {
             workshop.cityLowercase = workshop.city && workshop.city.toLowerCase();
             workshop.createdDate = new Date().getTime();
             workshop.categoryLowercase = workshop.category && workshop.category.toLocaleLowerCase();
-            let path = `${DB_PATH.WORKSHOPS}/${workshop.cityLowercase}`;
+            let path = `${DB_PATH.WORKSHOPS}`;
             return this.firebaseService.insert(path, workshop).then((insertResult) => {
-                let path = `${DB_PATH.WORKSHOPS}/${workshop.cityLowercase}/${insertResult.key}`;
+                let path = `${DB_PATH.WORKSHOPS}/${insertResult.key}`;
                 workshop.id = insertResult.key;
                 return this.firebaseService.setValue(path, workshop).then(() => {
                     resolve(workshop);
@@ -33,10 +33,20 @@ export class WorkshopService {
     //         }
     //     });
     // }
-    getWorkshopDetails(city: string, category: string): Promise<any> {
-        let dbPath = `${DB_PATH.WORKSHOPS}/${city}`;
+    
+    getWorkshopDetailsByCityCategory(city: string, category: string): Promise<any> {
+        let dbPath = `${DB_PATH.WORKSHOPS}`;
         let searchFieldName = "categoryLowercase";
         return this.firebaseService.getDetailsByQuery(dbPath, searchFieldName, category).then((result) => {
+            if (!result.error && result.value) {
+                return result.value;
+            }
+        });
+    }
+    getCustomerWorkshops(customerId: string):Promise<any>{
+        let dbPath = `${DB_PATH.WORKSHOPS}`;
+        let searchFieldName = "createdBy";
+        return this.firebaseService.getDetailsByQuery(dbPath, searchFieldName, customerId).then((result) => {
             if (!result.error && result.value) {
                 return result.value;
             }

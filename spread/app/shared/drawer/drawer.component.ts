@@ -14,7 +14,6 @@ import { RouterExtensions as TNSRouterExtensions } from 'nativescript-angular/ro
     styleUrls: ["drawer.component.css"]
 })
 export class DrawerComponent {
-    appVersionText: string = "";
     constructor(private userService: UserService,
         private router: Router,
         private routerExtensions: TNSRouterExtensions,
@@ -25,30 +24,29 @@ export class DrawerComponent {
     logout() {
         this.userService.logout().then((result) => {
             this.emptyAppState();
-            // this.router.navigate([Constants.APP_ROUTES.LOGIN]);
+            this.router.navigate(['login']);
         }).catch((error) => {
             console.log("Error occured to logout firebase", JSON.stringify(error));
         });
     }
     emptyAppState() {
+        this.appState.userId = "";
+        this.appState.customer = new Customer();
     }
     accountNavigation(route) {
-        // this.router.navigate([formattedRoute(route)]);
+        this.router.navigate([(route)]);
     }
 
-    refer() {
-        // SocialShare.shareText("Hey, have you heard about QWIPO, it’s a one-stop app to shop all your Butchery, Sweets, Nursery, Medicines, Vegetables & Fruits and many more for free delivery at your doorstep.\n \nCompare the Prices among multiple vendors and choose from the best. \n \nUse my Referral Code " + this.appState.customer.referrelCode + " to Signup and get Rs.250 Qwipo cash. \n \nDownload from Playstore (https://play.google.com/store/apps/details?id=com.qwipo.customer) \n \nAppstore(https://itunes.apple.com/us/app/id1259836013) \n \nWhy stand in line when you can get online?");
-    }
     profileNavigation() {
         if (this.appState.customer && this.appState.customer.name) {
-            // this.routerExtensions.navigate([formattedRoute(Constants.APP_ROUTES.PROFILE)], {
-            //     animated: true,
-            //     transition: {
-            //         name: "fade",
-            //         duration: 200,
-            //         curve: "linear"
-            //     }
-            // });
+            this.routerExtensions.navigate(['profile'], {
+                animated: true,
+                transition: {
+                    name: "fade",
+                    duration: 200,
+                    curve: "linear"
+                }
+            });
 
         }
     }

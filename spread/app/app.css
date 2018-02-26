@@ -13,7 +13,7 @@ refer to http://docs.nativescript.org/ui/theme.
 
 
 ActionBar {
-    background-color: #2196f3;
+    background-color: #fc7b5c;
     color: white;
     font-family: "FallingSkyLight";
     font-weight: bold;
@@ -27,7 +27,7 @@ ActionBar {
         height:auto;
         /* height: 160-dip; */
         background-color: #2a2c43;
-        background-image: url("res://screen1");
+        background-image: url("res://icon");
         margin-bottom: 7-px;
         background-repeat: no-repeat;
     }
