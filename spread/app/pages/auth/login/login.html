@@ -1,32 +1,21 @@
-<ScrollView>
-        <DockLayout stretchLastChild="true" class="background">
-            <Label textWrap="true" dock="left" class="w-10"></Label>
-            <Label textWrap="true" dock="right" class="w-10"></Label>
-            <Label textWrap="true" dock="top" class="h-15"></Label>
-            <Label textWrap="true" dock="bottom" class="h-15"></Label>
-            <StackLayout verticalAlignment="center">
-                <FlexboxLayout flexDirection="column">
-                    <FlexboxLayout flexDirection="column" style="background-color:white;" class="p-10">
-                        <FlexboxLayout flexDirection="row">
-                            <Label text="&#xf007;" textWrap="true" alignSelf="center" class="fa"></Label>
-                            <StackLayout class="input-field form input">
-                                <TextField autocapitalizationType="none" class="input" hint="Email" [(ngModel)]="userName" keyboardType="email" style="font-size:12;width:95%;placeholder-color:#8e8e92;"></TextField>
-                            </StackLayout>
-                        </FlexboxLayout>
-                        <FlexboxLayout flexDirection="row">
-                            <Label text="&#xf023;" textWrap="true" alignSelf="center" class="fa"></Label>
-                            <StackLayout class="input-field form input">
-                                <TextField class="input" hint="Password" secure="true" [(ngModel)]="password" style="font-size:12;width:95%;placeholder-color:#8e8e92;"></TextField>
-                            </StackLayout>
-                        </FlexboxLayout>
-                    </FlexboxLayout>
-                    <Button text="Login" class="br-1 c-white w-90 t-11 c-bg-blue h50" (tap)="login()"></Button>
-                    <Label text="" textWrap="true" class="h30"></Label>
-                    <FlexboxLayout flexDirection="row" color="white" justifyContent="space-between">
-                        <Label text="SIGN UP" (tap)="navigation(constants.APP_ROUTES.SIGNUP)" textWrap="true" class="t-12"></Label>
-                        <Label text="Forgot Password ?" textWrap="true" (tap)="navigation(constants.APP_ROUTES.FORGOT_PASSWORD)" class="t-12"></Label>
-                    </FlexboxLayout>
-                </FlexboxLayout>
+<ActionBar title="{N} Login Example"></ActionBar>
+<GridLayout backgroundColor="#CCCCCC">
+    <ScrollView>
+        <StackLayout margin="10" verticalAlignment="center">
+            <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
+                <StackLayout class="input-field">
+                    <Label text="Email" class="label font-weight-bold m-b-5"></Label>
+                    <TextField class="input" [(ngModel)]="userName"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <StackLayout class="input-field">
+                    <Label text="Password" class="label font-weight-bold m-b-5"></Label>
+                    <TextField secure="true" class="input" [(ngModel)]="password"></TextField>
+                    <StackLayout class="hr-light"></StackLayout>
+                </StackLayout>
+                <Button class="btn btn-primary w-full" text="Login" (tap)="login()"></Button>
+                <Label [nsRouterLink]="['/register']" text="Not a member? Register here." class="text-center footnote"></Label>
             </StackLayout>
-        </DockLayout>
+        </StackLayout>
     </ScrollView>
+</GridLayout>
