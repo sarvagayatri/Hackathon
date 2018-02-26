@@ -11,13 +11,74 @@ refer to http://docs.nativescript.org/ui/theme.
 */
 @import 'nativescript-theme-core/css/core.light.css';
 
-
+.background {
+    background-image: url("res://background");
+    /* background-image: url("res://screen"); */
+    background-repeat: no-repeat;
+    background-size:100% 100%;
+  }
+  .couponCircle{
+    width: 200;
+    height: 110;
+    background-color: #32b5ec;
+    color: white;
+    text-align: center;
+    padding: 15;
+    font-size: 20;
+  }
 ActionBar {
     background-color: #fc7b5c;
     color: white;
     font-family: "FallingSkyLight";
     font-weight: bold;
 }
+
+.submitBtn {
+    background-color: #2196f3;
+    border-radius: 20;
+    height: 35;
+    color: white;
+    width: 70%;
+    font-size: 12;
+    padding: 5;
+    margin-bottom: 12;
+    margin-top:12;
+    font-weight: bold;
+}
+.formBorders {
+    border-width: 2;
+    border-color: #f4f4f4;
+    border-radius: 6;
+}
+.fieldLabels {
+    font-size: 11;
+    color: #282828;
+   font-weight: bold;
+    padding: 17 0 17 2;
+    }
+.formLabel {
+    background-Color: #f4f4f4;
+    width: 35%;
+    height: auto;    
+}
+.formLabel1 {
+    background-Color: #f4f4f4;
+    width: 44%;
+    height: auto;    
+}
+.fieldLabels {
+    font-size: 11;
+    color: #282828;
+   font-weight: bold;
+    padding: 19 0 17 2;
+ }
+.mobileField {
+    font-size: 11;
+    color: #282828;
+    font-weight: bold;
+    padding: 10 0 10 2;    
+          
+   }
 .drawer-content {
     background-color: #fff;
     color: black;
@@ -56,12 +117,38 @@ ActionBar {
         background-color: #dddddd;
         margin: 20-px 0;
     }
-
+    .c-bg-blue{
+        background-color: #32b5ec;
+    }
+    .c-bg-gray{
+        background-color: #cdd5d8;
+    }
+    .c-white {
+        color: #fff;
+    }
+    .br-1 {
+        border-radius: 1;
+    }
+    .w-10{
+        width:10%;
+    }
 .w-80{
     width:80%;
 }
+.w-15{
+    width:15%;
+}
+.h50{
+    height: 50;
+}
+.h-15{
+    height:15%;
+}
 .p-5{
     padding: 5;
+}
+.p-10{
+    padding: 10;
 }
 .m-5{
     margin: 5;
@@ -77,6 +164,9 @@ ActionBar {
 }
 .t-11 {
     font-size: 11;
+}
+.t-12 {
+    font-size: 12;
 }
 .t-13 {
     font-size: 13;

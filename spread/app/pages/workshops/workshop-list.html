@@ -1,35 +1,22 @@
 <ActionBar>
-  <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
-  <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
-  </ActionItem>
-  <Label class="action-bar-title" text="Home"></Label>
+    <Label text="Workshops Near You" textWrap="true" horizontalAlignment="center"></Label>
+    <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
-<RadSideDrawer #drawerComponent tkToggleNavButton>
-  <ScrollView tkDrawerContent class="drawer-content">
-    <StackLayout horizontalAlignment="left">
-      <drawer-content></drawer-content>
-    </StackLayout>
-  </ScrollView>
-  <DockLayout tkMainContent>
-    <GridLayout backgroundColor="#CCCCCC">
-      <ScrollView>
-        <StackLayout margin="10" verticalAlignment="center">
-          <ListView [items]="workshops" class="list-group">
-            <ng-template let-item="item">
-              <StackLayout>
-                <Label [text]="item.title" class="list-group-item"></Label>
-                <Label [text]="item.who" class="list-group-item"></Label>
-                <Label [text]="item.dateTime" class="list-group-item"></Label>
-                <Label [text]="item.address" class="list-group-item"></Label>
-                <Label [text]="item.fee" class="list-group-item"></Label>
-                <Label [text]="item.contactNumber" class="list-group-item"></Label>
-                <Label [text]="item.city" class="list-group-item"></Label>
-                <Label [text]="item.preRequisites" class="list-group-item"></Label>
-              </StackLayout>
-            </ng-template>
-          </ListView>
+<DockLayout stretchLastChild="true">
+    <ScrollView>
+        <StackLayout class="m-10">
+            <StackLayout *ngFor="let workshop of workshops" style="border-radius:10;height:200">
+                <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*" class="">
+                    <Label [text]="workshop.dateTime" row="0" textWrap="true" class="t-13 couponCircle"></Label>
+                    <StackLayout row="0" col="1" class="c-bg-gray">
+                        <Label [text]="'Category: '+workshop.title" textWrap="true" class="t-16 m-t-2" style="color:#32b5ec;"></Label>
+                        <Label [text]="'By: '+workshop.who" textWrap="true" class="t-12 m-t-2"></Label>
+                        <Label [text]="'City: '+workshop.city" textWrap="true" style="color:darkviolet;" class="t-12 q-f-l t-12"></Label>
+                        <Label [text]="'Contact Number: '+workshop.contactNumber" class="t-12" textWrap="true"></Label>
+                        <Label [text]="Details" class="t-12 text-right" horizontalAlignment="right" textWrap="true"></Label>
+                    </StackLayout>
+                </GridLayout>
+            </StackLayout>
         </StackLayout>
-      </ScrollView>
-    </GridLayout>
-  </DockLayout>
-</RadSideDrawer>
+    </ScrollView>
+</DockLayout>

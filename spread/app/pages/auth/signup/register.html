@@ -1,33 +1,47 @@
-<ActionBar title="Spread">
-    <NavigationButton text="Back" ios.position="left"></NavigationButton>
+<ActionBar>
+    <Label text="Registration " textWrap="true" horizontalAlignment="center"></Label>
+    <NavigationButton text="Back" (tap)="login()" android.systemIcon="ic_menu_back"></NavigationButton>
 </ActionBar>
-<GridLayout backgroundColor="#CCCCCC">
+<DockLayout tkMainContent stretchLastChild="true">
     <ScrollView>
-        <StackLayout margin="10" verticalAlignment="center">
-            <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
-                <StackLayout class="input-field">
-                    <Label text="Name" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="customer.name"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
+        <StackLayout>
+            <StackLayout class="m-10">
+                <FlexboxLayout flexDirection="column" class="p-10">
+                    <FlexboxLayout flexDirection="row" class="formBorders">
+                        <Label text="Name" textWrap="true" class="fieldLabels formLabel"></Label>
+                        <StackLayout class="input-field form input">
+                            <TextField class="input" hint="Enter Name" [(ngModel)]="customer.name" style="font-size:12;"></TextField>
+                        </StackLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout flexDirection="row" class="m-t-10 formBorders">
+                        <Label text="Email" textWrap="true" class="fieldLabels formLabel"></Label>
+                        <StackLayout class="input-field form input">
+                            <TextField autocapitalizationType="none" class="input" hint="Enter Email" keyboardType="email" [(ngModel)]="customer.email"
+                                style="font-size:12;"></TextField>
+                        </StackLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout flexDirection="row" class="m-t-10 formBorders">
+                        <Label text="Password" textWrap="true" class="formLabel fieldLabels"></Label>
+                        <FlexboxLayout flexDirection="row" justifyContent="center" class="input-field m-l-24 m-l-17 form input">
+                            <TextField class="input" hint="Enter Password" secure="false" [(ngModel)]="password" style="font-size:12;"></TextField>
+                        </FlexboxLayout>
+                    </FlexboxLayout>
+                    <FlexboxLayout flexDirection="row" class="m-t-10 formBorders">
+                        <Label text="Mobile Number" textWrap="true" class="formLabel fieldLabels"></Label>
+                        <StackLayout class="input-field form input">
+                            <TextField class="input" hint="Enter Mobile Number" keyboardType="number" [(ngModel)]="customer.mobileNumber" style="font-size:12;"></TextField>
+                        </StackLayout>
+                    </FlexboxLayout>
+                </FlexboxLayout>
+                <StackLayout class="text-center" style="margin-top:30;">
+                    <Label text="By submitting you agree to our Terms & Conditions" fontSize="10" fontFamily="FallingSkyLight"></Label>
                 </StackLayout>
-                <StackLayout class="input-field">
-                    <Label text="Email" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="customer.email"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
+                <StackLayout class="text-center">
+                    <Label text="and that you have read our Privacy & Policy" fontSize="10" fontFamily="FallingSkyLight"></Label>
                 </StackLayout>
-                <StackLayout class="input-field">
-                    <Label text="Mobile Number" class="label font-weight-bold m-b-5"></Label>
-                    <TextField class="input" [(ngModel)]="customer.mobileNumber"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-                <StackLayout class="input-field">
-                    <Label text="Password" class="label font-weight-bold m-b-5"></Label>
-                    <TextField secure="true" class="input" [(ngModel)]="password"></TextField>
-                    <StackLayout class="hr-light"></StackLayout>
-                </StackLayout>
-                <Button class="btn btn-primary w-full" text="Register" (tap)="register()"></Button>
-                <Label (tap)="goBack()" text="Already a member? Login here." class="text-center footnote"></Label>
             </StackLayout>
+            <Button text="Register" (tap)="register()" class="submitBtn"></Button>
+            <Label (tap)="goBack()" text="Already a member? Login here." class="text-center footnote"></Label>
         </StackLayout>
     </ScrollView>
-</GridLayout>
+</DockLayout>
