@@ -1,9 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import { Component, OnInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import { Customer, Workshop } from './../../entities';
 import { WorkshopService, FireBaseService } from './../../services'
 import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerPage } from "./../../shared/drawer.page";
 import { ApplicationStateService } from "../../common";
+import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
+import { ModalComponent } from "./../skill/modal-dailog";
 
 @Component({
     moduleId: module.id,
@@ -12,17 +14,22 @@ import { ApplicationStateService } from "../../common";
 })
 export class WorkshopComponent extends DrawerPage {
     workshop: Workshop = new Workshop();
+    dateTime: string = "";
+
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
         private router: RouterExtensions,
         private appState: ApplicationStateService,
-    private fireBaseService: FireBaseService) {
+        private fireBaseService: FireBaseService,
+        private vcRef: ViewContainerRef,
+        private modal: ModalDialogService, ) {
         super(changeDetectorRef);
         this.workshop = {
             id: "",
             title: "Join C#",
             who: "Gayatri",
-            dateTime: "Feb 23rd,2018 11.00 AM",
+            date: new Date().getTime(),
+            time: '11.00 AM',
             address: "Plot No C-45, G Block, Videsh Bhavan, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",
             fee: "200",
             contactNumber: "022 2652 0016",
@@ -33,7 +40,7 @@ export class WorkshopComponent extends DrawerPage {
             cityLowercase: "",
             createdBy: 'dkrITPu3B4b48O9CmcdG7YtzzB32',//this.appState.customer.id,
             createdDate: new Date().getTime(),
-            interestedCandidates: [],
+            interestedCandidates: [""],
             rating: 0
         }
 
@@ -44,5 +51,20 @@ export class WorkshopComponent extends DrawerPage {
             this.router.navigate(["/workshopList"], { clearHistory: true });
 
         })
+    }
+    public showModal() {
+        const today = new Date();
+        const options: ModalDialogOptions = {
+            viewContainerRef: this.vcRef,
+            context: today.toDateString(),
+            fullscreen: false,
+        };
+
+        this.modal.showModal(ModalComponent, options).then(res => {
+            console.log("return result::", res);
+            this.workshop.date = new Date(res.date).getTime();
+            this.workshop.time = res.time;
+            this.dateTime = `${res.date},${res.time}`;
+        });
     }
 }

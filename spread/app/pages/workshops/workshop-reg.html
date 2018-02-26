@@ -1,8 +1,8 @@
 <ActionBar>
-	<NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
-	<ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
-	</ActionItem>
-	<Label class="action-bar-title" text="Workshop Registration"></Label>
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Workshop Registration"></Label>
 </ActionBar>
 <RadSideDrawer #drawerComponent tkToggleNavButton>
     <ScrollView tkDrawerContent class="drawer-content">
@@ -35,10 +35,9 @@
 
                         <StackLayout class="input-field">
                             <Label text="Date & Time" class="label font-weight-bold m-b-5"></Label>
-                            <TextField class="input" [(ngModel)]="workshop.dateTime"></TextField>
+                            <TextField class="input" [(ngModel)]="dateTime" (tap)="showModal()"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
-
                         <StackLayout class="input-field">
                             <Label text="City" class="label font-weight-bold m-b-5"></Label>
                             <TextField class="input" [(ngModel)]="workshop.city"></TextField>

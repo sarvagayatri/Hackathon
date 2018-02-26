@@ -15,7 +15,7 @@ import { UserWorkshopsComponent } from "./pages/workshops/workshops-user";
 import { WorkshopsWillingComponent } from "./pages/workshops/workshops-willing";
 
 import { SkillComponent } from "./pages/skill/skill";
-// import { ModalDialogService } from "nativescript-angular/modal-dialog";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { ModalComponent } from "./pages/skill/modal-dailog";
 
 import { CustomerService, FireBaseService } from './services';
@@ -44,7 +44,7 @@ import { CustomerService, FireBaseService } from './services';
     ],
     entryComponents: [ModalComponent],
     providers: [
-        // ModalDialogService
+        ModalDialogService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

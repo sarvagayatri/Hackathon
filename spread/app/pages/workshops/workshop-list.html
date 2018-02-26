@@ -1,7 +1,16 @@
 <ActionBar>
-    <Label text="Workshops Near You" textWrap="true" horizontalAlignment="center"></Label>
-    <NavigationButton text="Back" android.systemIcon="ic_menu_back"></NavigationButton>
+	<NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
+	<ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
+	</ActionItem>
+	<Label class="action-bar-title" text="Workshops In your City"></Label>
 </ActionBar>
+<RadSideDrawer #drawerComponent tkToggleNavButton>
+    <ScrollView tkDrawerContent class="drawer-content">
+        <StackLayout horizontalAlign="left">
+            <drawer-content></drawer-content>
+        </StackLayout>
+    </ScrollView>
+    <StackLayout tkMainContent>
 <DockLayout stretchLastChild="true">
     <ScrollView>
         <StackLayout class="m-10">
@@ -20,3 +29,5 @@
         </StackLayout>
     </ScrollView>
 </DockLayout>
+</StackLayout>
+</RadSideDrawer>

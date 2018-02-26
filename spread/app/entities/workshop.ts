@@ -2,7 +2,8 @@ export class Workshop {
     id: string = "";
     title: string = "";
     who: string = "";
-    dateTime: string = "";
+    date: number;
+    time: string = "";
     address: string = "";
     fee: string = "";
     contactNumber: string = "";
