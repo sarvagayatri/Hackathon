@@ -39,7 +39,7 @@ export class ModalComponent implements OnInit {
         let timePicker: TimePicker = <TimePicker>this.page.getViewById<TimePicker>("timePicker");
         // let result = `${datePicker.day}/${datePicker.month}/${datePicker.year},${timePicker.hour}:${timePicker.minute}`;
         let result = {
-            date: `${datePicker.day}/${datePicker.month}/${datePicker.year}`,
+            date: `${datePicker.date}`,
             time: `${timePicker.hour}:${timePicker.minute}`
         };
         this.params.closeCallback(result);

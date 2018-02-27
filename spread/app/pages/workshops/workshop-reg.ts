@@ -25,7 +25,7 @@ export class WorkshopComponent extends DrawerPage {
         private modal: ModalDialogService, ) {
         super(changeDetectorRef);
         this.workshop = {
-            id: "",
+            id: null,
             title: "Join C#",
             who: "Gayatri",
             date: new Date().getTime(),
@@ -40,7 +40,7 @@ export class WorkshopComponent extends DrawerPage {
             cityLowercase: "",
             createdBy: 'dkrITPu3B4b48O9CmcdG7YtzzB32',//this.appState.customer.id,
             createdDate: new Date().getTime(),
-            interestedCandidates: [""],
+            interestedCandidates: null,
             rating: 0
         }
 
@@ -61,10 +61,12 @@ export class WorkshopComponent extends DrawerPage {
         };
 
         this.modal.showModal(ModalComponent, options).then(res => {
-            console.log("return result::", res);
-            this.workshop.date = new Date(res.date).getTime();
+            console.log("return result::", JSON.stringify(res));
+            let resultDate: Date = new Date(res.date);
+            this.workshop.date = resultDate.getTime();
             this.workshop.time = res.time;
-            this.dateTime = `${res.date},${res.time}`;
+            this.dateTime = `${resultDate.getDay()}/${resultDate.getMonth() + 1}/${resultDate.getFullYear()},${res.time}`;
+            console.log("date:::", this.workshop.date);
         });
     }
 }
