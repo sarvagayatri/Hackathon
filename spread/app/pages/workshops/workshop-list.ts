@@ -16,7 +16,7 @@ export class WorkshopListComponent extends DrawerPage {
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
-        private router: RouterExtensions
+        private router:RouterExtensions
     ) {
         super(changeDetectorRef);
     }
