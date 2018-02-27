@@ -6,6 +6,7 @@ import { ApplicationStateService } from "./../../common";
 import { Customer } from "./../../entities";
 // import * as SocialShare from "nativescript-social-share";
 import { RouterExtensions as TNSRouterExtensions } from 'nativescript-angular/router/router-extensions';
+import { CacheManager } from "../../common/cache-manager";
 
 @Component({
     moduleId: module.id,
@@ -24,10 +25,14 @@ export class DrawerComponent {
     logout() {
         this.userService.logout().then((result) => {
             this.emptyAppState();
+            this.emptyAppSettings();
             this.router.navigate(['login']);
         }).catch((error) => {
             console.log("Error occured to logout firebase", JSON.stringify(error));
         });
+    }
+    emptyAppSettings(){
+        CacheManager.remove('account');
     }
     emptyAppState() {
         this.appState.userId = "";

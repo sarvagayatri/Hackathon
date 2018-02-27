@@ -37,7 +37,7 @@
                     <ng-template let-item="item">
                         <StackLayout class="m-5 p-5">
                             <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*">
-                                <Label [text]="item.dateTime" row="0" textWrap="true" class="t-13 couponCircle"></Label>
+                                <Label [text]="item.date + ' '+ item.time" row="0" textWrap="true" class="t-13 couponCircle"></Label>
                                 <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1">
                                     <StackLayout row="0" col="0" class="m-l-5">
                                         <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#32b5ec;"></Label>

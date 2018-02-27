@@ -1,4 +1,4 @@
-<ActionBar title="{N} Login Example">
+<ActionBar title="Register">
     <NavigationButton text="Back" ios.position="left"></NavigationButton>
 </ActionBar>
 <GridLayout backgroundColor="#CCCCCC">
@@ -20,6 +20,12 @@
             <StackLayout class="input-field">
                 <Label text="Mobile Number" class="label font-weight-bold m-b-5"></Label>
                 <TextField class="input" [(ngModel)]="customer.mobileNumber"></TextField>
+                <StackLayout class="hr-light"></StackLayout>
+            </StackLayout>
+
+            <StackLayout class="input-field">
+                <Label text="City" class="label font-weight-bold m-b-5"></Label>
+                <TextField class="input" [(ngModel)]="customer.city"></TextField>
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 

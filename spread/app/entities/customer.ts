@@ -8,5 +8,7 @@ export class Customer {
     emailLowerCase: string = "";
     mobileNumber: string = "";
     address: Address = new Address();
+    city: string = "";
+    cityLowercase: string = "";
     createdDate: number;
 }

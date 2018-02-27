@@ -38,12 +38,11 @@ export class WorkshopComponent extends DrawerPage {
             categoryLowercase: "",
             city: "Mumbai",
             cityLowercase: "",
-            createdBy: 'dkrITPu3B4b48O9CmcdG7YtzzB32',//this.appState.customer.id,
+            createdBy: this.appState.customer.id,
             createdDate: new Date().getTime(),
             interestedCandidates: null,
             rating: 0
         }
-
     }
     registerWorkshop() {
         this.workshopService.save(this.workshop).then((result) => {

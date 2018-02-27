@@ -27,19 +27,22 @@ export class LoginComponent implements OnInit {
     }
 
     public ngOnInit() {
-        return this.initFirebase().then(() => {
-            CacheManager.remove('account');
-        });
+        return this.initFirebase()
         // .then(() => {
-        //     this.checkUserLoggedIn();
-        // }).catch((error) => {
-        //     this.checkUserLoggedIn();
+        //     CacheManager.remove('account');
         // });
+        .then(() => {
+            this.checkUserLoggedIn();
+        }).catch((error) => {
+            this.checkUserLoggedIn();
+        });
     }
     checkUserLoggedIn() {
         let customer = CacheManager.get('account');
-        // this.appState.customer = customer;
-        this.router.navigate(["/workshopList"], { clearHistory: true });
+        if(customer){
+            this.appState.customer = customer;
+            this.router.navigate(["/workshopList"], { clearHistory: true });
+        }
     }
     private initFirebase() {
         return this.fireBaseService.initFirebase().then((instance) => {

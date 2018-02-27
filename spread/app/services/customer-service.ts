@@ -14,6 +14,7 @@ export class CustomerService {
                 customer.id = insertResult.key;
                 customer.nameLowerCase = customer.name && customer.name.toLowerCase();
                 customer.emailLowerCase = customer.email && customer.email.toLocaleLowerCase();
+                customer.cityLowercase = customer.city && customer.city.toLowerCase();
                 customer.createdDate = new Date().getTime();
                 return this.firebaseService.setValue(path, customer).then((results) => {
                     resolve(customer);
