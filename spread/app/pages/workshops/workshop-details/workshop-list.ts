@@ -1,8 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-import { Customer, Workshop } from './../../entities';
-import { WorkshopService } from './../../services'
-import { toCustomArray } from './../../common'
-import { DrawerPage } from "./../../shared/drawer.page";
+import { Customer, Workshop } from './../../../entities';
+import { WorkshopService } from './../../../services'
+import { toCustomArray, ApplicationStateService } from './../../../common'
+import { DrawerPage } from "./../../../shared/drawer.page";
 import { RouterExtensions } from "nativescript-angular/router";
 
 
@@ -16,7 +16,8 @@ export class WorkshopListComponent extends DrawerPage {
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
-        private router:RouterExtensions
+        private router: RouterExtensions,
+        private appState: ApplicationStateService
     ) {
         super(changeDetectorRef);
     }
@@ -32,7 +33,8 @@ export class WorkshopListComponent extends DrawerPage {
 
         })
     }
-    navigation() {
+    navigation(workshop) {
+        this.appState.workshop = workshop;
         this.router.navigate(["/workshop-willing"]);
 
     }

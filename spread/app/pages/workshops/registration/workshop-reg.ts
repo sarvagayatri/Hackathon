@@ -1,11 +1,11 @@
 import { Component, OnInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
-import { Customer, Workshop } from './../../entities';
-import { WorkshopService, FireBaseService } from './../../services'
+import { Customer, Workshop } from './../../../entities';
+import { WorkshopService, FireBaseService } from './../../../services'
 import { RouterExtensions } from "nativescript-angular/router";
-import { DrawerPage } from "./../../shared/drawer.page";
-import { ApplicationStateService } from "../../common";
+import { DrawerPage } from "./../../../shared/drawer.page";
+import { ApplicationStateService } from "../../../common";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
-import { ModalComponent } from "./../skill/modal-dailog";
+import { ModalComponent } from "./../../skill/modal-dailog";
 
 @Component({
     moduleId: module.id,

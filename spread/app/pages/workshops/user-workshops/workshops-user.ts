@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-import { DrawerPage } from "./../../shared/drawer.page";
-import { Customer, Workshop } from "../../entities";
-import { ApplicationStateService } from "../../common";
-import { WorkshopService, FireBaseService } from "../../services";
-import { toCustomArray } from './../../common/utility'
+import { DrawerPage } from "./../../../shared/drawer.page";
+import { Customer, Workshop } from "../../../entities";
+import { ApplicationStateService } from "../../../common";
+import { WorkshopService, FireBaseService } from "../../../services";
+import { toCustomArray } from './../../../common/utility'
 
 @Component({
     moduleId: module.id,

@@ -7,12 +7,12 @@ import { CoreModule } from './services/services.module';
 
 import { LoginComponent } from "./pages/auth/login/login";
 import { RegisterComponent } from "./pages/auth/signup/register";
-import { WorkshopComponent } from "./pages/workshops/workshop-reg";
-import { WorkshopListComponent } from "./pages/workshops/workshop-list";
+import { WorkshopComponent } from "./pages/workshops/registration/workshop-reg";
+import { WorkshopListComponent } from "./pages/workshops/workshop-details/workshop-list";
 import { SharedModule } from './shared/shared.module';
 import {ProfileComponent} from './pages/auth/profile/profile'
-import { UserWorkshopsComponent } from "./pages/workshops/workshops-user";
-import { WorkshopsWillingComponent } from "./pages/workshops/workshops-willing";
+import { UserWorkshopsComponent } from "./pages/workshops/user-workshops/workshops-user";
+import { WorkshopsWillingComponent } from "./pages/workshops/workshop-willing/workshops-willing";
 
 import { SkillComponent } from "./pages/skill/skill";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";

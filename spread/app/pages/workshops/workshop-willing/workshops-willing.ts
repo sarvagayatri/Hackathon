@@ -1,5 +1,5 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-import { DrawerPage } from "./../../shared/drawer.page";
+import { DrawerPage } from "./../../../shared/drawer.page";
 
 @Component({
     moduleId: module.id,
