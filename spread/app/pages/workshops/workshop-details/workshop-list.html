@@ -55,6 +55,12 @@
                         </StackLayout>
                     </ng-template>
                 </ListView>
+                <StackLayout *ngIf="noWorkShopsFound">
+                    <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                        <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
+                        <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
+                    </FlexboxLayout>
+                </StackLayout>
             </StackLayout>
         </DockLayout>
     </StackLayout>

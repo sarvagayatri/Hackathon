@@ -13,6 +13,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 })
 export class WorkshopListComponent extends DrawerPage {
     workshops: Array<Workshop> = [];
+    noWorkShopsFound: boolean = false;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
@@ -29,6 +30,9 @@ export class WorkshopListComponent extends DrawerPage {
         this.workshopService.getWorkshopDetailsByCityCategory(city, category).then((result) => {
             // console.log("result::", JSON.stringify(result));
             this.workshops = toCustomArray(result);
+            if (this.workshops.length === 0) {
+                this.noWorkShopsFound = true;
+            }
             // console.log("workshops::", JSON.stringify(this.workshops));
 
         })
