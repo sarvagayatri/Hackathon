@@ -35,7 +35,6 @@ export class WorkshopListComponent extends DrawerPage {
     }
     navigation(workshop) {
         this.appState.workshop = workshop;
-        this.router.navigate(["/workshop-willing"]);
-
+        this.router.navigate(["/workshop-detail"]);
     }
 }

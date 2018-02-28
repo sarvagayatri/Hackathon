@@ -11,25 +11,61 @@
     </StackLayout>
   </ScrollView>
   <DockLayout tkMainContent>
-    <GridLayout backgroundColor="#CCCCCC">
-      <ScrollView>
-        <StackLayout margin="10" verticalAlignment="center">
-          <ListView [items]="workshops" class="list-group">
-            <ng-template let-item="item">
-              <StackLayout>
-                <Label [text]="item.title" class="list-group-item"></Label>
-                <Label [text]="item.who" class="list-group-item"></Label>
-                <Label [text]="item.dateTime" class="list-group-item"></Label>
-                <Label [text]="item.address" class="list-group-item"></Label>
-                <Label [text]="item.fee" class="list-group-item"></Label>
-                <Label [text]="item.contactNumber" class="list-group-item"></Label>
-                <Label [text]="item.city" class="list-group-item"></Label>
-                <Label [text]="item.preRequisites" class="list-group-item"></Label>
-              </StackLayout>
-            </ng-template>
-          </ListView>
+    <ScrollView>
+        <StackLayout>
+            <StackLayout *ngFor="let workshop of workshops" verticalAlignment="center">
+                <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="*,2*"  backgroundColor="#FFFFFF">
+
+                    <Label text="Title:" row="0" col="0" class="label t-16   m-5"></Label>
+                    <Label [text]="workshop.title" row="0" col="1" textWrap="true" class="label  m-5"></Label>
+
+
+                    <StackLayout class="hr-light" row="1" colspan="2"></StackLayout>
+
+                    <Label text="&#xf007;" row="2" col="0" class="fa t-16  label  m-5"></Label>
+                    <Label [text]="workshop.who" row="2" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="3" colspan="2"></StackLayout>
+
+                    <Label text="&#xf073;" row="4" col="0" class="fa t-16  label  m-5"></Label>
+                    <Label [text]="workshop.date | date_ddmmmyyyy" row="4" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="5" colspan="2"></StackLayout>
+
+                    <Label text="&#xf2bb;" row="6" col="0" class="fa t-16  label  m-5"></Label>
+                    <Label [text]="workshop.address" row="6" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="7" colspan="2"></StackLayout>
+
+                    <Label text="&#xf156;" row="8" col="0" class="fa t-16  label  m-5"></Label>
+                    <Label [text]="workshop.fee" row="8" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="9" colspan="2"></StackLayout>
+
+                    <Label text="&#xf095;" row="10" col="0" class="fa t-16   label  m-5"></Label>
+                    <Label [text]="workshop.contactNumber" row="10" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="11" colspan="2"></StackLayout>
+
+                    <Label text="Pre-Requisites" row="12" col="0" textWrap="true" class="label  t-16  m-5"></Label>
+                    <Label [text]="workshop.preRequisites" row="12" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="13" colspan="2"></StackLayout>
+
+                    <Label text="Category" row="14" col="0" textWrap="true" class="label  t-16  m-5"></Label>
+                    <Label [text]="workshop.category" row="14" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="15" colspan="2"></StackLayout>
+
+                    <Label text="&#xf041;" row="16" col="0" class="fa t-16 label m-5"></Label>
+                    <Label [text]="workshop.city" row="16" col="1" textWrap="true" class="label  m-5"></Label>
+
+                    <StackLayout class="hr-light" row="17" colspan="2"></StackLayout>
+
+                </GridLayout>
+                <Button class="btn btn-primary" text="Edit" (tap)="editWorkshop(workshop)"></Button>
+            </StackLayout>
         </StackLayout>
-      </ScrollView>
-    </GridLayout>
-  </DockLayout>
+    </ScrollView>
+</DockLayout>
 </RadSideDrawer>

@@ -12,7 +12,8 @@ import { WorkshopListComponent } from "./pages/workshops/workshop-details/worksh
 import { SharedModule } from './shared/shared.module';
 import {ProfileComponent} from './pages/auth/profile/profile'
 import { UserWorkshopsComponent } from "./pages/workshops/user-workshops/workshops-user";
-import { WorkshopsWillingComponent } from "./pages/workshops/workshop-willing/workshops-willing";
+import { WorkshopDetailComponent } from "./pages/workshops/workshop-details/workshop-detail";
+import { WorkshopUpdateComponent } from "./pages/workshops/workshop-update/workshop-update";
 
 import { SkillComponent } from "./pages/skill/skill";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
@@ -40,7 +41,8 @@ import { CustomerService, FireBaseService } from './services';
         WorkshopListComponent,
         ProfileComponent,
         UserWorkshopsComponent,
-        WorkshopsWillingComponent
+        WorkshopDetailComponent,
+        WorkshopUpdateComponent 
     ],
     entryComponents: [ModalComponent],
     providers: [

@@ -27,15 +27,6 @@ export class WorkshopService {
         });
     }
 
-    // getCustomer(uid): Promise<Customer> {
-    //     let dbPath = `${DB_PATH.CUSTOMER}/${uid}`;
-    //     return this.firebaseService.getDetailsByQuery(dbPath).then((result) => {
-    //         if (!result.error && result.value) {
-    //             return result.value;
-    //         }
-    //     });
-    // }
-
     getWorkshopDetailsByCityCategory(city: string, category: string): Promise<any> {
         let dbPath = `${DB_PATH.WORKSHOPS}`;
         let searchFieldName = "categoryLowercase";
@@ -52,6 +43,16 @@ export class WorkshopService {
             if (!result.error && result.value) {
                 return result.value;
             }
+        });
+    }
+    update(workshop): Promise<any> {
+        let path = `${DB_PATH.WORKSHOPS}/${workshop.id}`;
+        return new Promise((resolve, reject) => {
+            return this.firebaseService.update(path, workshop).then(() => {
+                resolve(workshop);
+            }).catch((error) => {
+                reject(error);
+            });
         });
     }
 }

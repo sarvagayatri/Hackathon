@@ -4,6 +4,7 @@ import { Customer, Workshop } from "../../../entities";
 import { ApplicationStateService } from "../../../common";
 import { WorkshopService, FireBaseService } from "../../../services";
 import { toCustomArray } from './../../../common/utility'
+import { Router, NavigationExtras } from "@angular/router";
 
 @Component({
     moduleId: module.id,
@@ -17,19 +18,26 @@ export class UserWorkshopsComponent extends DrawerPage {
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private appState: ApplicationStateService,
         private workshopService: WorkshopService,
-        private fireBaseService: FireBaseService) {
+        private fireBaseService: FireBaseService,
+        private router: Router) {
         super(changeDetectorRef);
         this.customer = this.appState.customer;
     }
 
     ngOnInit() {
-            this.geCustomertWorkshops();
+        this.geCustomertWorkshops();
     }
     geCustomertWorkshops() {
-        this.workshopService.getCustomerWorkshops('dkrITPu3B4b48O9CmcdG7YtzzB32').then(workshops => {
+        this.workshopService.getCustomerWorkshops(this.appState.customer.id).then(workshops => {
             this.workshops = toCustomArray(workshops);
-            console.log("workshops::", JSON.stringify(this.workshops));
-            
         });
+    }
+    editWorkshop(workshop) {
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "workshop": JSON.stringify(workshop)
+            }
+        };
+        this.router.navigate(["/workshop-update"], navigationExtras);
     }
 }
