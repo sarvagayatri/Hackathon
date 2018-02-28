@@ -12,7 +12,8 @@ export class WorkshopService {
             workshop.cityLowercase = workshop.city && workshop.city.toLowerCase();
             workshop.createdDate = new Date().getTime();
             workshop.categoryLowercase = workshop.category && workshop.category.toLocaleLowerCase();
-            console.log("workshop::", JSON.stringify(workshop));
+            workshop.city_category = `${workshop.city}_${workshop.category}`;
+
             let path = `${DB_PATH.WORKSHOPS}`;
             return this.firebaseService.insert(path, workshop).then((insertResult) => {
                 console.log("key:::", insertResult.key);
@@ -29,8 +30,9 @@ export class WorkshopService {
 
     getWorkshopDetailsByCityCategory(city: string, category: string): Promise<any> {
         let dbPath = `${DB_PATH.WORKSHOPS}`;
-        let searchFieldName = "categoryLowercase";
-        return this.firebaseService.getDetailsByQuery(dbPath, searchFieldName, category).then((result) => {
+        let searchFieldName = "city_category";
+        let searchFielValue = `${city.toLowerCase()}_${category.toLowerCase()}`;
+        return this.firebaseService.getDetailsByQuery(dbPath, searchFieldName, searchFielValue).then((result) => {
             if (!result.error && result.value) {
                 return result.value;
             }

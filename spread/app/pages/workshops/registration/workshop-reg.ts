@@ -41,6 +41,7 @@ export class WorkshopComponent extends DrawerPage {
             createdBy: this.appState.customer.id,
             createdDate: new Date().getTime(),
             interestedCandidates: null,
+            city_category: "",
             rating: 0
         }
     }

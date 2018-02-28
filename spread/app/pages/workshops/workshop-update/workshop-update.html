@@ -9,7 +9,7 @@
                     <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
                         <StackLayout class="input-field">
                             <Label text="Category" class="label font-weight-bold m-b-5"></Label>
-                            <TextField class="input" [(ngModel)]="workshop.category"></TextField>
+                            <TextField class="input" [(ngModel)]="workshop.category" editable="false"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
 
@@ -28,12 +28,12 @@
                         <StackLayout class="input-field">
                             <Label text="Date & Time" class="label font-weight-bold m-b-5"></Label>
                             <!-- <Label [text]="item.date | date_ddmmmyyyy" r(tap)="showModal()"></Label> -->
-                            <TextField class="input" [text]="date | date_ddmmmyyyy" (tap)="showModal()"></TextField>
+                            <TextField class="input" [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" editable="false"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
                         <StackLayout class="input-field">
                             <Label text="City" class="label font-weight-bold m-b-5"></Label>
-                            <TextField class="input" [(ngModel)]="workshop.city"></TextField>
+                            <TextField class="input" [(ngModel)]="workshop.city" editable="false"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
 

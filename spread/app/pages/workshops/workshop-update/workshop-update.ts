@@ -27,7 +27,7 @@ export class WorkshopUpdateComponent {
     ngOnInit(): void {
         this.route.queryParams.subscribe((params: any) => {
             this.workshop = JSON.parse(params["workshop"]);
-            console.log("received workshop:::", this.workshop);
+            console.log("received workshop:::", JSON.stringify(this.workshop));
         });
     }
 
@@ -35,24 +35,23 @@ export class WorkshopUpdateComponent {
         this.workshopService.update(this.workshop).then((result) => {
             console.log("insert result success");
             this.router.navigate(["/workshopList"]);
-
         })
     }
-    public showModal() {
-        const today = new Date();
-        const options: ModalDialogOptions = {
-            viewContainerRef: this.vcRef,
-            context: today.toDateString(),
-            fullscreen: false,
-        };
+    // public showModal() {
+    //     const today = new Date();
+    //     const options: ModalDialogOptions = {
+    //         viewContainerRef: this.vcRef,
+    //         context: today.toDateString(),
+    //         fullscreen: false,
+    //     };
 
-        this.modal.showModal(ModalComponent, options).then(res => {
-            console.log("return result::", JSON.stringify(res));
-            let resultDate: Date = new Date(res.date);
-            this.workshop.date = resultDate.getTime();
-            this.workshop.time = res.time;
-            this.dateTime = `${resultDate.getDay()}/${resultDate.getMonth() + 1}/${resultDate.getFullYear()},${res.time}`;
-            console.log("date:::", this.workshop.date);
-        });
-    }
+    //     this.modal.showModal(ModalComponent, options).then(res => {
+    //         console.log("return result::", JSON.stringify(res));
+    //         let resultDate: Date = new Date(res.date);
+    //         this.workshop.date = resultDate.getTime();
+    //         this.workshop.time = res.time;
+    //         this.dateTime = `${resultDate.getDay()}/${resultDate.getMonth() + 1}/${resultDate.getFullYear()},${res.time}`;
+    //         console.log("date:::", this.workshop.date);
+    //     });
+    // }
 }

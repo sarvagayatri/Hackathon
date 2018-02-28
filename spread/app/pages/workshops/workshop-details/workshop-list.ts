@@ -1,9 +1,9 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Customer, Workshop } from './../../../entities';
 import { WorkshopService } from './../../../services'
-import { toCustomArray, ApplicationStateService } from './../../../common'
+import { toCustomArray, ApplicationStateService, sortObjectsByDate } from './../../../common'
 import { DrawerPage } from "./../../../shared/drawer.page";
-import { RouterExtensions } from "nativescript-angular/router";
+import { Router, NavigationExtras } from "@angular/router";
 
 
 @Component({
@@ -16,7 +16,7 @@ export class WorkshopListComponent extends DrawerPage {
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
-        private router: RouterExtensions,
+        private router: Router,
         private appState: ApplicationStateService
     ) {
         super(changeDetectorRef);
@@ -27,14 +27,15 @@ export class WorkshopListComponent extends DrawerPage {
 
     getWorkshopDetails(city: string, category: string) {
         this.workshopService.getWorkshopDetailsByCityCategory(city, category).then((result) => {
-            // console.log("result::", JSON.stringify(result));
-            this.workshops = toCustomArray(result);
-            // console.log("workshops::", JSON.stringify(this.workshops));
-
+            this.workshops = sortObjectsByDate(toCustomArray(result));
         })
     }
     navigation(workshop) {
-        this.appState.workshop = workshop;
-        this.router.navigate(["/workshop-detail"]);
+        let navigationExtras: NavigationExtras = {
+            queryParams: {
+                "workshop": JSON.stringify(workshop)
+            }
+        };
+        this.router.navigate(["/workshop-detail"], navigationExtras);
     }
 }

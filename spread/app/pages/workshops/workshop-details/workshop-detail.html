@@ -5,7 +5,6 @@
 <DockLayout>
     <ScrollView>
         <StackLayout>
-            <StackLayout *ngFor="let workshop of workshops" verticalAlignment="center">
                 <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="*,2*" backgroundColor="#FFFFFF">
 
                     <Label text="Title:" row="0" col="0" class="label t-16   m-5"></Label>
@@ -20,7 +19,7 @@
                     <StackLayout class="hr-light" row="3" colspan="2"></StackLayout>
 
                     <Label text="&#xf073;" row="4" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.dateTime" row="4" col="1" textWrap="true" class="label  m-5"></Label>
+                    <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" row="4" col="1" textWrap="true" class="label  m-5"></Label>
 
                     <StackLayout class="hr-light" row="5" colspan="2"></StackLayout>
 
@@ -56,7 +55,6 @@
 
                 </GridLayout>
                 <Button class="btn btn-primary" text="Interested" (tap)="interested()"></Button>
-            </StackLayout>
         </StackLayout>
     </ScrollView>
 </DockLayout>

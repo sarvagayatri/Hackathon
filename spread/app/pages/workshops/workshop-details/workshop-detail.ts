@@ -1,4 +1,8 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
+import { Router, ActivatedRoute } from "@angular/router";
+import { Workshop } from "../../../entities";
+import { ApplicationStateService } from "../../../common";
+import { WorkshopService } from "../../../services";
 
 @Component({
     moduleId: module.id,
@@ -6,25 +10,21 @@ import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
     templateUrl: "workshop-detail.html",
 })
 export class WorkshopDetailComponent {
-    workshops: Array<any>;
-    constructor() {
-        this.workshops = [{
-            id: "",
-            title: "Join C#",
-            who: "Gayatri",
-            dateTime: "Feb 23rd,2018 11.00 AM",
-            address: "Plot No C-45, G Block, Videsh Bhavan, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",
-            fee: "200",
-            contactNumber: "022 2652 0016",
-            preRequisites: "32-bit (x86) or 64-bit (x64) processors, Dual-core, 2.66-GHz or faster processor, USB 2.0 bus dedicated to the Kinect",
-            category: "Education",
-            categoryLowercase: "",
-            city: "Mumbai",
-            cityLowercase: "",
-            createdBy: 'dkrITPu3B4b48O9CmcdG7YtzzB32',//this.appState.customer.id,
-            createdDate: new Date().getTime(),
-            interestedCandidates: [],
-            rating: 0
-        }];
+    workshop: Workshop;
+    constructor(private route: ActivatedRoute,
+        private appState: ApplicationStateService,
+        private workshopService: WorkshopService) {
+    }
+    ngOnInit(): void {
+        this.route.queryParams.subscribe((params: any) => {
+            this.workshop = JSON.parse(params["workshop"]);
+            console.log("received workshop:::", this.workshop);
+        });
+    }
+    interested() {
+        this.workshop.interestedCandidates.push(this.appState.customer.id);
+        this.workshopService.update(this.workshop).then(result => {
+            console.log("clicked interested");
+        });
     }
 }
