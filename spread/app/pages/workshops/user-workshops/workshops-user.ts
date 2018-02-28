@@ -15,6 +15,7 @@ import { Router, NavigationExtras } from "@angular/router";
 export class UserWorkshopsComponent extends DrawerPage {
     customer: Customer;
     workshops: Array<Workshop>;
+    noWorkShopsFound: boolean = false;
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private appState: ApplicationStateService,
         private workshopService: WorkshopService,
@@ -30,6 +31,9 @@ export class UserWorkshopsComponent extends DrawerPage {
     geCustomertWorkshops() {
         this.workshopService.getCustomerWorkshops(this.appState.customer.id).then(workshops => {
             this.workshops = toCustomArray(workshops);
+            if (this.workshops.length === 0) {
+                this.noWorkShopsFound = true;
+            }
         });
     }
     editWorkshop(workshop) {

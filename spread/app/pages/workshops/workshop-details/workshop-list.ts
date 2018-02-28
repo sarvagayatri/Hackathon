@@ -13,6 +13,7 @@ import { Router, NavigationExtras } from "@angular/router";
 })
 export class WorkshopListComponent extends DrawerPage {
     workshops: Array<Workshop> = [];
+    noWorkShopsFound: boolean = false;
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
@@ -27,7 +28,17 @@ export class WorkshopListComponent extends DrawerPage {
 
     getWorkshopDetails(city: string, category: string) {
         this.workshopService.getWorkshopDetailsByCityCategory(city, category).then((result) => {
+<<<<<<< HEAD
             this.workshops = sortObjectsByDate(toCustomArray(result));
+=======
+            // console.log("result::", JSON.stringify(result));
+            this.workshops = toCustomArray(result);
+            if (this.workshops.length === 0) {
+                this.noWorkShopsFound = true;
+            }
+            // console.log("workshops::", JSON.stringify(this.workshops));
+
+>>>>>>> c646c94f0ea5b7ffc195ca613e20e43201a09c8f
         })
     }
     navigation(workshop) {
