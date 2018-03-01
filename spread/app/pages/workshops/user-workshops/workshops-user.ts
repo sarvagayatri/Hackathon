@@ -58,9 +58,5 @@ export class UserWorkshopsComponent extends DrawerPage {
 
         this.noUpcomingWorkshops = this.upcomingWorkshops.length === 0;
         this.noPastWorkshops = this.pastWorkshops.length === 0;
-
-        console.log("worlshop upcomingWorkshops array::", JSON.stringify(upcomingWorkshops));
-        console.log("worlshop pastWorkshops array::", JSON.stringify(pastWorkshops));
-
     }
 }

@@ -37,21 +37,4 @@ export class WorkshopUpdateComponent {
             this.router.navigate(["/workshopList"]);
         })
     }
-    // public showModal() {
-    //     const today = new Date();
-    //     const options: ModalDialogOptions = {
-    //         viewContainerRef: this.vcRef,
-    //         context: today.toDateString(),
-    //         fullscreen: false,
-    //     };
-
-    //     this.modal.showModal(ModalComponent, options).then(res => {
-    //         console.log("return result::", JSON.stringify(res));
-    //         let resultDate: Date = new Date(res.date);
-    //         this.workshop.date = resultDate.getTime();
-    //         this.workshop.time = res.time;
-    //         this.dateTime = `${resultDate.getDay()}/${resultDate.getMonth() + 1}/${resultDate.getFullYear()},${res.time}`;
-    //         console.log("date:::", this.workshop.date);
-    //     });
-    // }
 }
