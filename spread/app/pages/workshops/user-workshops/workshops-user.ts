@@ -14,12 +14,14 @@ import { Router, NavigationExtras } from "@angular/router";
 
 export class UserWorkshopsComponent extends DrawerPage {
     customer: Customer;
-    workshops: Array<Workshop>;
-    noWorkShopsFound: boolean = false;
+    upcomingWorkshops: Array<Workshop> = [];
+    pastWorkshops: Array<Workshop> = [];
+    noPastWorkshops: boolean = false;
+    noUpcomingWorkshops: boolean = false;
+
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private appState: ApplicationStateService,
         private workshopService: WorkshopService,
-        private fireBaseService: FireBaseService,
         private router: Router) {
         super(changeDetectorRef);
         this.customer = this.appState.customer;
@@ -30,10 +32,8 @@ export class UserWorkshopsComponent extends DrawerPage {
     }
     geCustomertWorkshops() {
         this.workshopService.getCustomerWorkshops(this.appState.customer.id).then(workshops => {
-            this.workshops = toCustomArray(workshops);
-            if (this.workshops.length === 0) {
-                this.noWorkShopsFound = true;
-            }
+            let workshopsCustomArray = toCustomArray(workshops);
+            this.filterWorkshopsByDate(workshopsCustomArray);
         });
     }
     editWorkshop(workshop) {
@@ -43,5 +43,24 @@ export class UserWorkshopsComponent extends DrawerPage {
             }
         };
         this.router.navigate(["/workshop-update"], navigationExtras);
+    }
+    filterWorkshopsByDate(workshops: Array<Workshop>) {
+        let yesterday = new Date(new Date().getTime() - 24 * 60 * 60 * 1000).getTime();
+        let upcomingWorkshops: any = workshops.filter(workshop => {
+            return workshop.date > yesterday;
+        });
+        let pastWorkshops: any = workshops.filter(workshop => {
+            return workshop.date <= yesterday;
+        });
+
+        this.upcomingWorkshops = upcomingWorkshops.sortElements("date");
+        this.pastWorkshops = pastWorkshops.sortElements("date");
+
+        this.noUpcomingWorkshops = this.upcomingWorkshops.length === 0;
+        this.noPastWorkshops = this.pastWorkshops.length === 0;
+
+        console.log("worlshop upcomingWorkshops array::", JSON.stringify(upcomingWorkshops));
+        console.log("worlshop pastWorkshops array::", JSON.stringify(pastWorkshops));
+
     }
 }

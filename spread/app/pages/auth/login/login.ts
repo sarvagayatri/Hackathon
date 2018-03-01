@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
             });
     }
     checkUserLoggedIn() {
-        let customer = CacheManager.get('account');
+        let customer = JSON.parse(CacheManager.get('account'));
         if (customer) {
             this.appState.customer = customer;
             console.log("appstate customer::", JSON.stringify(this.appState.customer));

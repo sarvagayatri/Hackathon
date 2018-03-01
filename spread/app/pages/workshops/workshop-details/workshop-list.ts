@@ -25,7 +25,7 @@ export class WorkshopListComponent extends DrawerPage {
         super(changeDetectorRef);
     }
     public ngOnInit() {
-        return this.getWorkshopDetails("mumbai11", "education");
+        return this.getWorkshopDetails("mumbai", "education");
     }
 
     getWorkshopDetails(city: string, category: string) {

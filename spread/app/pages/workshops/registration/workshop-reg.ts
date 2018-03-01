@@ -45,9 +45,6 @@ export class WorkshopComponent extends DrawerPage {
             rating: 0
         }
     }
-    ngOnInit() {
-        console.log("customerId::", this.appState.customer.id);
-    }
     registerWorkshop() {
         this.workshopService.save(this.workshop).then((result) => {
             console.log("insert result success");
