@@ -28,20 +28,21 @@ export class LoginComponent implements OnInit {
 
     public ngOnInit() {
         return this.initFirebase()
-        // .then(() => {
-        //     CacheManager.remove('account');
-        // });
-        .then(() => {
-            this.checkUserLoggedIn();
-        }).catch((error) => {
-            this.checkUserLoggedIn();
-        });
+            // .then(() => {
+            //     CacheManager.remove('account');
+            // });
+            .then(() => {
+                this.checkUserLoggedIn();
+            }).catch((error) => {
+                this.checkUserLoggedIn();
+            });
     }
     checkUserLoggedIn() {
         let customer = CacheManager.get('account');
-        if(customer){
+        if (customer) {
             this.appState.customer = customer;
-            this.router.navigate(["/workshopList"], { clearHistory: true });
+            console.log("appstate customer::", JSON.stringify(this.appState.customer));
+            this.router.navigate(["/workshopList"]);
         }
     }
     private initFirebase() {
@@ -57,7 +58,7 @@ export class LoginComponent implements OnInit {
                 this.customerService.getCustomer(response.uid).then(result => {
                     this.appState.customer = result;
                     CacheManager.set("account", JSON.stringify(result));
-                    this.router.navigate(["/workshopList"], { clearHistory: true });
+                    this.router.navigate(["/workshopList"]);
                 });
             }).catch((error) => {
                 (new SnackBar()).simple("Login Failed..! User Doesn't Exists or Password wrong.");

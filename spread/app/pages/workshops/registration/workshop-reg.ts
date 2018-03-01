@@ -6,6 +6,7 @@ import { DrawerPage } from "./../../../shared/drawer.page";
 import { ApplicationStateService } from "../../../common";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
 import { ModalComponent } from "./../../skill/modal-dailog";
+import { ModelTypes } from './../../../common/enums'
 
 @Component({
     moduleId: module.id,
@@ -14,7 +15,6 @@ import { ModalComponent } from "./../../skill/modal-dailog";
 })
 export class WorkshopComponent extends DrawerPage {
     workshop: Workshop = new Workshop();
-    dateTime: string = "";
 
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
@@ -45,28 +45,39 @@ export class WorkshopComponent extends DrawerPage {
             rating: 0
         }
     }
+    ngOnInit() {
+        console.log("customerId::", this.appState.customer.id);
+    }
     registerWorkshop() {
         this.workshopService.save(this.workshop).then((result) => {
             console.log("insert result success");
-            this.router.navigate(["/workshopList"], { clearHistory: true });
-
+            this.router.navigate(["/workshopList"]);
         })
     }
-    public showModal() {
-        const today = new Date();
+    public showModal(modelType: number) {
         const options: ModalDialogOptions = {
             viewContainerRef: this.vcRef,
-            context: today.toDateString(),
+            context: {
+                type: modelType
+            },
             fullscreen: false,
         };
-
         this.modal.showModal(ModalComponent, options).then(res => {
-            console.log("return result::", JSON.stringify(res));
-            let resultDate: Date = new Date(res.date);
-            this.workshop.date = resultDate.getTime();
-            this.workshop.time = res.time;
-            this.dateTime = `${resultDate.getDay()}/${resultDate.getMonth() + 1}/${resultDate.getFullYear()},${res.time}`;
-            console.log("date:::", this.workshop.date);
+
+            switch (modelType) {
+                case ModelTypes.DateTime:
+                    let resultDate: Date = new Date(res.date);
+                    this.workshop.date = resultDate.getTime();
+                    this.workshop.time = res.time;
+                    break;
+
+                case ModelTypes.Category:
+                    this.workshop.category = res;
+                    break;
+                case ModelTypes.City:
+                    this.workshop.city = res;
+                    break;
+            }
         });
     }
 }

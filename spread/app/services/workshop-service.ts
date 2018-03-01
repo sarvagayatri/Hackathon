@@ -12,8 +12,8 @@ export class WorkshopService {
             workshop.cityLowercase = workshop.city && workshop.city.toLowerCase();
             workshop.createdDate = new Date().getTime();
             workshop.categoryLowercase = workshop.category && workshop.category.toLocaleLowerCase();
-            workshop.city_category = `${workshop.city}_${workshop.category}`;
-
+            workshop.city_category = `${workshop.cityLowercase}_${workshop.categoryLowercase}`;
+            console.log("workshop::", JSON.stringify(workshop));
             let path = `${DB_PATH.WORKSHOPS}`;
             return this.firebaseService.insert(path, workshop).then((insertResult) => {
                 console.log("key:::", insertResult.key);

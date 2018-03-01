@@ -7,4 +7,12 @@ import { AppModule } from "./app.module";
 // Angular applications need to take care of their own initialization: modules, components, directives, routes, DI providers. 
 // A NativeScript Angular app needs to make both paradigms work together, so we provide a wrapper platform object, platformNativeScriptDynamic, 
 // that sets up a NativeScript application and can bootstrap the Angular framework.
+
+(<any>Array.prototype).sortElements = function (name: string) {
+    return this.sort(function (a, b) {
+        return parseFloat(a[name]) - parseFloat(b[name]);
+    });
+};
+
+
 platformNativeScriptDynamic().bootstrapModule(AppModule);

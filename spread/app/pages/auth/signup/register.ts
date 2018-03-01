@@ -26,7 +26,6 @@ export class RegisterComponent {
                 CacheManager.set("account", JSON.stringify(this.customer));
                 this.location.back();
             });
-
         } else {
             (new SnackBar()).simple("All Fields Required!");
         }
@@ -67,6 +66,6 @@ export class RegisterComponent {
         }
         return isValid;
     }
-    
+
 
 }

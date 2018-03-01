@@ -9,6 +9,5 @@ export class ApplicationStateService {
     workshop : Workshop;
 
     constructor() {
-        this.customer = new Customer();
     }
 }
