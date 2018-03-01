@@ -13,38 +13,79 @@
 
     <StackLayout tkMainContent>
         <DockLayout stretchLastChild="true">
-            <StackLayout *ngIf="!noWorkShopsFound">
-                <ListView [items]="workshops" style="width:100%;height:100%;">
-                    <ng-template let-item="item">
-                        <StackLayout class="m-5 p-5">
-                            <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*">
-                                <Label [text]="item.date | date_ddmmmyyyy" row="0" textWrap="true" class="t-13 couponCircle"></Label>
-                                <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1">
-                                    <StackLayout row="0" col="0" class="m-l-5">
-                                        <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#32b5ec;"></Label>
-                                        <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2"></Label>
-                                        <Label [text]="item.city" textWrap="true" style="color:darkviolet;" class="t-12 q-f-l"></Label>
-                                        <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true"></Label>
-                                    </StackLayout>
-                                    <StackLayout row="0" col="1" (tap)="navigation(item)">
-                                        <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
-                                        <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
-                                        <Label text="&#xf054;" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
-                                    </StackLayout>
-                                </GridLayout>
-                            </GridLayout>
-                        </StackLayout>
-                    </ng-template>
-                </ListView>
-            </StackLayout>
 
-            <StackLayout *ngIf="noWorkShopsFound">
-                <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
-                    <Image src="~/images/noelements.png" class=" h-30 w-40"></Image>
-                    <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
-                    <Label [nsRouterLink]="['/workshopReg']" text="Want to Add one?? Register here." class="text-center footnote"></Label>
-                </FlexboxLayout>
-            </StackLayout>
+            <TabView>
+                <StackLayout *tabItem="{title: 'Upcoming'}">
+                    <StackLayout *ngIf="!noUpcomingWorkshops">
+                        <ListView [items]="upcomingWorkshops" style="width:100%;height:100%;">
+                            <ng-template let-item="item">
+                                <StackLayout class="m-5 p-5">
+                                    <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*">
+                                        <Label [text]="item.date | date_ddmmmyyyy" row="0" textWrap="true" class="t-13 couponCircle"></Label>
+                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1">
+                                            <StackLayout row="0" col="0" class="m-l-5">
+                                                <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#32b5ec;"></Label>
+                                                <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2"></Label>
+                                                <Label [text]="item.city" textWrap="true" style="color:darkviolet;" class="t-12 q-f-l"></Label>
+                                                <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true"></Label>
+                                            </StackLayout>
+                                            <StackLayout row="0" col="1" (tap)="navigation(item)">
+                                                <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                                <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                                <Label text="&#xf054;" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                            </StackLayout>
+                                        </GridLayout>
+                                    </GridLayout>
+                                </StackLayout>
+                            </ng-template>
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout *ngIf="noUpcomingWorkshops">
+                        <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                            <Image src="~/images/noelements.png" class=" h-30 w-40"></Image>
+                            <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
+                            <Label [nsRouterLink]="['/workshopReg']" text="Want to Add one?? Register here." class="text-center footnote"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </StackLayout>
+
+                <StackLayout *tabItem="{title: 'Past'}">
+                    <StackLayout *ngIf="!noPastWorkshops">
+                        <ListView [items]="pastWorkshops" style="width:100%;height:100%;">
+                            <ng-template let-item="item">
+                                <StackLayout class="m-5 p-5">
+                                    <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*">
+                                        <Label [text]="item.date | date_ddmmmyyyy" row="0" textWrap="true" class="t-13 couponCircle"></Label>
+                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1">
+                                            <StackLayout row="0" col="0" class="m-l-5">
+                                                <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#32b5ec;"></Label>
+                                                <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2"></Label>
+                                                <Label [text]="item.city" textWrap="true" style="color:darkviolet;" class="t-12 q-f-l"></Label>
+                                                <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true"></Label>
+                                            </StackLayout>
+                                            <StackLayout row="0" col="1" (tap)="navigation(item)">
+                                                <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                                <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                                <Label text="&#xf054;" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                            </StackLayout>
+                                        </GridLayout>
+                                    </GridLayout>
+                                </StackLayout>
+                            </ng-template>
+                        </ListView>
+                    </StackLayout>
+
+                    <StackLayout *ngIf="noPastWorkshops">
+                        <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                            <Image src="~/images/noelements.png" class=" h-30 w-40"></Image>
+                            <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
+                        </FlexboxLayout>
+                    </StackLayout>
+                </StackLayout>
+
+            </TabView>
+
 
         </DockLayout>
     </StackLayout>
