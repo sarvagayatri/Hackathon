@@ -23,7 +23,7 @@ export class WorkshopListComponent extends DrawerPage {
         super(changeDetectorRef);
     }
     public ngOnInit() {
-        return this.getWorkshopDetails("mumbai", "education");
+        return this.getWorkshopDetails("mumbai111", "education");
     }
 
     getWorkshopDetails(city: string, category: string) {
@@ -31,9 +31,7 @@ export class WorkshopListComponent extends DrawerPage {
             let workshopsCustomArray: any = toCustomArray(result);
             this.workshops = workshopsCustomArray.sortElements("date");
             // console.log("result::", JSON.stringify(result));
-            if (this.workshops.length === 0) {
-                this.noWorkShopsFound = true;
-            }
+            this.noWorkShopsFound = this.workshops.length === 0;
             // console.log("workshops::", JSON.stringify(this.workshops));
         })
     }

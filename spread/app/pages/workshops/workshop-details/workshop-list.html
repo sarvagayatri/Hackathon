@@ -10,29 +10,10 @@
             <drawer-content></drawer-content>
         </StackLayout>
     </ScrollView>
-    <!-- <StackLayout tkMainContent>
-        <DockLayout stretchLastChild="true">
-            <ScrollView>
-                <StackLayout class="m-10">
-                    <StackLayout *ngFor="let workshop of workshops" style="border-radius:10;height:200">
-                        <GridLayout row="2" colspan="3" rows="*,*" columns="*,3*" class="">
-                            <Label [text]="workshop.dateTime" row="0" textWrap="true" class="t-13 couponCircle"></Label>
-                            <StackLayout row="0" col="1" class="c-bg-gray">
-                                <Label [text]="'Category: '+workshop.title" textWrap="true" class="t-16 m-t-2" style="color:#32b5ec;"></Label>
-                                <Label [text]="'By: '+workshop.who" textWrap="true" class="t-12 m-t-2"></Label>
-                                <Label [text]="'City: '+workshop.city" textWrap="true" style="color:darkviolet;" class="t-12 q-f-l t-12"></Label>
-                                <Label [text]="'Contact Number: '+workshop.contactNumber" class="t-12" textWrap="true"></Label>
-                                <Label [text]="Details" class="t-12 text-right" horizontalAlignment="right" textWrap="true"></Label>
-                            </StackLayout>
-                        </GridLayout>
-                    </StackLayout>
-                </StackLayout>
-    </StackLayout>
-</RadSideDrawer> -->
 
     <StackLayout tkMainContent>
         <DockLayout stretchLastChild="true">
-            <StackLayout>
+            <StackLayout *ngIf="!noWorkShopsFound">
                 <ListView [items]="workshops" style="width:100%;height:100%;">
                     <ng-template let-item="item">
                         <StackLayout class="m-5 p-5">
@@ -55,13 +36,16 @@
                         </StackLayout>
                     </ng-template>
                 </ListView>
-                <StackLayout *ngIf="noWorkShopsFound">
-                    <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
-                        <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
-                        <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
-                    </FlexboxLayout>
-                </StackLayout>
             </StackLayout>
+
+            <StackLayout *ngIf="noWorkShopsFound">
+                <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                    <Image src="~/images/noelements.png" class=" h-30 w-40"></Image>
+                    <Label text="No Workshops at your location" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
+                    <Label [nsRouterLink]="['/workshopReg']" text="Want to Add one?? Register here." class="text-center footnote"></Label>
+                </FlexboxLayout>
+            </StackLayout>
+
         </DockLayout>
     </StackLayout>
 </RadSideDrawer>
