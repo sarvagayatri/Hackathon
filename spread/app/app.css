@@ -54,6 +54,10 @@ ActionBar {
     font-size: 19;
     text-align: center;
 }
+.listContent{
+    font-family: "FallingSkyLight";
+    font-size: 18;
+}
 .submitBtn {
     background-color: #2196f3;
     border-radius: 20;
