@@ -32,32 +32,7 @@ ActionBar {
     font-family: "FallingSkyLight";
     font-weight: bold;
 }
-.listDate{
-    background-color: #fc7b5c;
-    color: white;
-    font-family: "FallingSkyLight";
-    font-weight: bold;
-    font-size: 25;
-    text-align: center;
-}
-.listMonth{
-    background-color: #fc7b5c;
-    color: white;
-    font-family: "FallingSkyLight";
-    font-size: 21;
-    text-align: center;
-}
-.listTime{
-    background-color: #fc7b5c;
-    color: white;
-    font-family: "FallingSkyLight";
-    font-size: 19;
-    text-align: center;
-}
-.listContent{
-    font-family: "FallingSkyLight";
-    font-size: 18;
-}
+
 .submitBtn {
     background-color: #2196f3;
     border-radius: 20;
@@ -143,6 +118,32 @@ ActionBar {
         background-color: #dddddd;
         margin: 20-px 0;
     }
+.listContent{
+    font-family: "FallingSkyLight";
+    font-size: 18;
+}
+.listDate{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-weight: bold;
+    font-size: 25;
+    text-align: center;
+}
+.listMonth{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-size: 21;
+    text-align: center;
+}
+.listTime{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-size: 19;
+    text-align: center;
+}
     .c-bg-blue{
         background-color: #32b5ec;
     }
@@ -155,6 +156,9 @@ ActionBar {
     .c-white {
         color: #fff;
     }
+    .c-orange {
+        color:#fc7b5c;
+    }
     .br-1 {
         border-radius: 1;
     }
@@ -166,6 +170,9 @@ ActionBar {
 }
 .w-15{
     width:15%;
+}
+.w-20{
+    width:20%;
 }
 .h50{
     height: 50;
@@ -181,6 +188,9 @@ ActionBar {
 }
 .m-5{
     margin: 5;
+}
+.m-20{
+    margin: 20;
 }
 .m-l-5{
     margin-left: 5;
@@ -211,4 +221,10 @@ ActionBar {
 }
 .t-17 {
     font-size: 17;
+}
+.t-20 {
+    font-size: 20;
+}
+.t-25 {
+    font-size: 25;
 }
