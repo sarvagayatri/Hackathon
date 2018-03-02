@@ -14,7 +14,7 @@
         <GridLayout backgroundColor="#CCCCCC">
             <ScrollView>
                 <StackLayout margin="10" verticalAlignment="center">
-                    <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
+                    <StackLayout class="form customform" padding="15" backgroundColor="#FFFFFF">
                         <StackLayout class="input-field">
                             <Label text="Category" class="label font-weight-bold m-b-5"></Label>
                             <TextField class="input" [text]="workshop.category" (tap)="showModal(2)"></TextField>
@@ -68,7 +68,7 @@
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
 
-                        <Button class="btn btn-primary w-full" text="Register" (tap)="registerWorkshop()"></Button>
+                        <Button class="btn btn-primary w-full custombtn" text="Register" (tap)="registerWorkshop()"></Button>
                         <!-- <Label (tap)="goBack()" text="Already a member? Login here." class="text-center footnote"></Label> -->
                     </StackLayout>
                 </StackLayout>

@@ -1,11 +1,11 @@
-<StackLayout class="modal-view-style" sdkExampleTitle sdkToggleNavButton *ngIf="type === 1">
+<StackLayout class="modal-view-style customform" sdkExampleTitle sdkToggleNavButton *ngIf="type === 1">
     <DatePicker id="datePicker"></DatePicker>
     <TimePicker id="timePicker"></TimePicker>
     <Button class="btn btn-primary btn-active" text="Submit" (tap)="submitDateTime()"></Button>
 </StackLayout>
 
 
-<StackLayout class="modal-view-style" sdkExampleTitle sdkToggleNavButton *ngIf="type === 2">
+<StackLayout class="modal-view-style customform" sdkExampleTitle sdkToggleNavButton *ngIf="type === 2">
     <ListView [items]="categories" class="list-group">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
@@ -16,7 +16,7 @@
 </StackLayout>
 
 
-<StackLayout class="modal-view-style" sdkExampleTitle sdkToggleNavButton *ngIf="type === 3">
+<StackLayout class="modal-view-style customform" sdkExampleTitle sdkToggleNavButton *ngIf="type === 3">
     <ListView [items]="cities" class="list-group">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
@@ -27,7 +27,7 @@
 </StackLayout>
 
 <StackLayout *ngIf="type === 4">
-    <ListView [items]="categories" class="list-group">
+    <ListView [items]="categories" class="list-group customform">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
                 <CheckBox #CB1 [text]="item" checked="false" (tap)="getCheckProp(item)"></CheckBox>

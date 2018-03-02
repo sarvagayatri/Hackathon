@@ -2,8 +2,8 @@
     <NavigationButton text="Back" ios.position="left"></NavigationButton>
 </ActionBar>
 <GridLayout backgroundColor="#CCCCCC">
-    <StackLayout margin="10" verticalAlignment="center">
-        <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
+    <StackLayout margin="10" verticalAlignment="center" >
+        <StackLayout class="form customform" padding="15" backgroundColor="#FFFFFF">
 
             <StackLayout class="input-field">
                 <Label text="Name" class="label font-weight-bold m-b-5"></Label>
@@ -41,7 +41,7 @@
                 <StackLayout class="hr-light"></StackLayout>
             </StackLayout>
 
-            <Button class="btn btn-primary w-full" text="Register" (tap)="register()"></Button>
+            <Button class="btn btn-primary w-full custombtn" text="Register" (tap)="register()"></Button>
             <Label (tap)="goBack()" text="Already a member? Login here." class="text-center footnote"></Label>
         </StackLayout>
     </StackLayout>

@@ -144,6 +144,21 @@ ActionBar {
     font-size: 19;
     text-align: center;
 }
+.detailText{
+        font-family: "FallingSkyLight";
+        font-size: 16;
+        text-align: left;
+}
+.custombtn{
+    font-family: "FallingSkyLight";
+    font-size: 16;
+    text-align: center;
+}
+.customform{
+    font-family: "FallingSkyLight";
+    font-size: 14;
+    text-align: left;
+}
     .c-bg-blue{
         background-color: #32b5ec;
     }
@@ -158,6 +173,7 @@ ActionBar {
     }
     .c-orange {
         color:#fc7b5c;
+     
     }
     .br-1 {
         border-radius: 1;
