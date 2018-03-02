@@ -4,7 +4,7 @@ import { WorkshopService, FireBaseService } from './../../../services'
 import { Router, ActivatedRoute } from "@angular/router";
 import { ApplicationStateService } from "../../../common";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
-import { ModalComponent } from "./../../skill/modal-dailog";
+import { ModalComponent } from "./../../modal-dailog/modal-dailog";
 
 @Component({
     moduleId: module.id,

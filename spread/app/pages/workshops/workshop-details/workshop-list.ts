@@ -5,7 +5,7 @@ import { toCustomArray, ApplicationStateService, sortObjectsByDate } from './../
 import { DrawerPage } from "./../../../shared/drawer.page";
 import { Router, NavigationExtras } from "@angular/router";
 import { ListPicker } from "ui/list-picker";
-import { ModalComponent } from "./../../skill/modal-dailog";
+import { ModalComponent } from "./../../modal-dailog/modal-dailog";
 import { ModelTypes } from './../../../common/enums'
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
 import { loaderOptions } from "./../../../utils";

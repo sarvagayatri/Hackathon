@@ -15,9 +15,8 @@ import { UserWorkshopsComponent } from "./pages/workshops/user-workshops/worksho
 import { WorkshopDetailComponent } from "./pages/workshops/workshop-details/workshop-detail";
 import { WorkshopUpdateComponent } from "./pages/workshops/workshop-update/workshop-update";
 
-import { SkillComponent } from "./pages/skill/skill";
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
-import { ModalComponent } from "./pages/skill/modal-dailog";
+import { ModalComponent } from "./pages/modal-dailog/modal-dailog";
 
 @NgModule({
     bootstrap: [

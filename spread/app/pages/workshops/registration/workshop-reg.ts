@@ -5,7 +5,7 @@ import { RouterExtensions } from "nativescript-angular/router";
 import { DrawerPage } from "./../../../shared/drawer.page";
 import { ApplicationStateService } from "../../../common";
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
-import { ModalComponent } from "./../../skill/modal-dailog";
+import { ModalComponent } from "./../../modal-dailog/modal-dailog";
 import { ModelTypes } from './../../../common/enums'
 
 @Component({
