@@ -14,7 +14,7 @@ import { CacheManager } from "../../../common/cache-manager";
 })
 export class LoginComponent implements OnInit {
 
-    public userName: string = "jagan@qwipo.com";
+    public userName: string = "laxmi@ee.com";
     public password: string = "test@123";
     public displayStatus: boolean;
 

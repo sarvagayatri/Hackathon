@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { Workshop } from "../../../entities";
-import { ApplicationStateService } from "../../../common";
+import { Workshop, Customer } from "../../../entities";
+import { ApplicationStateService, getNames } from "../../../common";
 import { WorkshopService } from "../../../services";
 
 @Component({
@@ -29,18 +29,20 @@ export class WorkshopDetailComponent {
     }
     checkEnableStatus() {
         this.selfCreator = this.customerId === this.workshop.createdBy ? true : false;
-        let isExists = this.workshop.interestedCandidates.filter(customerId => {
-            return customerId === this.appState.customer.id;
+        console.log("cand::", JSON.stringify(this.workshop.interestedCandidates));
+        let candidateIds = getNames(this.workshop.interestedCandidates);
+        let isExists = candidateIds.filter(id => {
+            return id === this.appState.customer.id;
         });
         this.alreadyLiked = isExists && isExists.length > 0;
     }
 
     interested() {
-        this.workshop.interestedCandidates = this.workshop.interestedCandidates || [];
-        this.workshop.interestedCandidates.push(this.appState.customer.id);
-        console.log("received workshop:::", JSON.stringify(this.workshop));
-
-        this.workshopService.update(this.workshop).then(result => {
+        let obj = {};
+        obj[`${this.appState.customer.id}`] = true;
+        console.log("Obj", JSON.stringify(obj));
+        // this.workshop.interestedCandidates.push(obj);
+        this.workshopService.update1(this.workshop, this.appState.customer.id).then(result => {
             console.log("wORKSHOP UPDATED");
             this.router.navigate(["/workshopList"]);
         });

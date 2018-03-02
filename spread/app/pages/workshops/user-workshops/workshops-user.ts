@@ -28,9 +28,9 @@ export class UserWorkshopsComponent extends DrawerPage {
     }
 
     ngOnInit() {
-        this.geCustomertWorkshops();
+        this.geCustomerWorkshops();
     }
-    geCustomertWorkshops() {
+    geCustomerWorkshops() {
         this.workshopService.getCustomerWorkshops(this.appState.customer.id).then(workshops => {
             let workshopsCustomArray = toCustomArray(workshops);
             this.filterWorkshopsByDate(workshopsCustomArray);

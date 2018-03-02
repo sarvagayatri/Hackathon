@@ -7,3 +7,6 @@ export function sortObjectsByDate(jsonList) {
         return a.date - b.date;
     });
 }
+export function getNames(e) {
+    return Object.keys(e).filter(v => isNaN(parseInt(v, 10)));
+}
