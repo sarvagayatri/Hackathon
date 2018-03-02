@@ -9,6 +9,8 @@ import { DropDownModule } from "nativescript-drop-down/angular";
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular";
 import { DrawerComponent } from './drawer/drawer.component';
 import { DateDDMMMYYYTimePipe, DateDDMMMYYYPipe } from "./valueConverters";
+import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
+
 const SHARED_MODULES = [
     NativeScriptCommonModule,
     NativeScriptFormsModule,
@@ -23,7 +25,8 @@ const SHARED_MODULES = [
         NativeScriptUISideDrawerModule,
         NativeScriptRouterModule,
         NativeScriptCommonModule,
-        DropDownModule
+        DropDownModule,
+        TNSCheckBoxModule
     ],
     declarations: [
         DrawerComponent,

@@ -2,7 +2,10 @@
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Workshops In your City"></Label>
+    <Label class="action-bar-title" text="Workshops"></Label>
+    <ActionItem>
+        <label [text]="city" (tap)="showModal(3)"></label>
+    </ActionItem>
 </ActionBar>
 <RadSideDrawer #drawerComponent tkToggleNavButton>
     <ScrollView tkDrawerContent class="drawer-content">
@@ -11,12 +14,13 @@
         </StackLayout>
     </ScrollView>
 
+
     <StackLayout tkMainContent>
         <DockLayout stretchLastChild="true">
-
             <TabView>
                 <StackLayout *tabItem="{title: 'Upcoming'}">
                     <StackLayout *ngIf="!noUpcomingWorkshops">
+                        <!-- <label [text]="category" (tap)="showModal(2)"></label> -->
                         <ListView [items]="upcomingWorkshops" style="width:100%;height:100%;">
                             <ng-template let-item="item">
                                 <StackLayout class="m-5 p-5">
@@ -89,4 +93,6 @@
 
         </DockLayout>
     </StackLayout>
+
+
 </RadSideDrawer>

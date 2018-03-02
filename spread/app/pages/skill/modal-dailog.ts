@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from "@angular/core";
+import { Component, OnInit, NgModule, ViewChild, ElementRef } from "@angular/core";
 import { ModalDialogParams } from "nativescript-angular/modal-dialog";
 import { DatePicker } from "ui/date-picker";
 import { TimePicker } from "ui/time-picker";
@@ -9,6 +9,7 @@ import { Page } from "ui/page";
     templateUrl: "./modal-dailog.html",
 })
 export class ModalComponent implements OnInit {
+    @ViewChild("CB1") FirstCheckBox: ElementRef;
     public type: number;
     public categories: Array<string> = [];
     public cities: Array<string> = [];
@@ -38,5 +39,12 @@ export class ModalComponent implements OnInit {
     }
     public cityClick(args) {
         this.params.closeCallback(args);
+    }
+    public getCheckProp(item) {
+        // console.log('checked prop value = ' + this.FirstCheckBox.nativeElement.checked);
+        console.log('checked item value = ' + item);
+
+        this.params.closeCallback(item);
+
     }
 }

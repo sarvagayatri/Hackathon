@@ -1,5 +1,3 @@
-
-
 <StackLayout class="modal-view-style" sdkExampleTitle sdkToggleNavButton *ngIf="type === 1">
     <DatePicker id="datePicker"></DatePicker>
     <TimePicker id="timePicker"></TimePicker>
@@ -23,6 +21,16 @@
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
                 <Label [text]="item" (tap)="cityClick(item)"></Label>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</StackLayout>
+
+<StackLayout *ngIf="type === 4">
+    <ListView [items]="categories" class="list-group">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <GridLayout class="list-group-item">
+                <CheckBox #CB1 [text]="item" checked="false" (tap)="getCheckProp(item)"></CheckBox>
             </GridLayout>
         </ng-template>
     </ListView>

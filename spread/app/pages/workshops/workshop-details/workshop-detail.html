@@ -54,7 +54,11 @@
                     <StackLayout class="hr-light" row="17" colspan="2"></StackLayout>
 
                 </GridLayout>
-                <Button class="btn btn-primary" text="Interested" (tap)="interested()" *ngIf="!selfCreator"></Button>
+        <StackLayout *ngIf="!selfCreator">
+                <Button class="btn btn-primary" text="Interested" (tap)="interested()" *ngIf="!alreadyLiked"></Button>
+                <Button class="btn btn-primary" text="You already shown Willing to this" *ngIf="alreadyLiked"></Button>
+        </StackLayout>
+                
         </StackLayout>
     </ScrollView>
 </DockLayout>

@@ -22,7 +22,7 @@ export class WorkshopComponent extends DrawerPage {
         private appState: ApplicationStateService,
         private fireBaseService: FireBaseService,
         private vcRef: ViewContainerRef,
-        private modal: ModalDialogService, ) {
+        private modal: ModalDialogService ) {
         super(changeDetectorRef);
         this.workshop = {
             id: null,

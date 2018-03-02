@@ -27,11 +27,11 @@ export class WorkshopService {
             });
         });
     }
-
-    getWorkshopDetailsByCityCategory(city: string, category: string): Promise<any> {
+    getWorkshopDetails(city: string): Promise<any> {
         let dbPath = `${DB_PATH.WORKSHOPS}`;
-        let searchFieldName = "city_category";
-        let searchFielValue = `${city.toLowerCase()}_${category.toLowerCase()}`;
+        let searchFieldName = "cityLowercase"
+        let searchFielValue = city.toLowerCase();
+        
         return this.firebaseService.getDetailsByQuery(dbPath, searchFieldName, searchFielValue).then((result) => {
             if (!result.error && result.value) {
                 return result.value;
