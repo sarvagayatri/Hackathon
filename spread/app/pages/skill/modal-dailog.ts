@@ -30,7 +30,7 @@ export class ModalComponent implements OnInit {
         let timePicker: TimePicker = <TimePicker>this.page.getViewById<TimePicker>("timePicker");
         let result = {
             date: `${datePicker.date}`,
-            time: `${timePicker.hour}:${timePicker.minute}`
+            time: this.format_time(timePicker.hour, timePicker.minute)
         };
         this.params.closeCallback(result);
     }
@@ -46,5 +46,18 @@ export class ModalComponent implements OnInit {
 
         this.params.closeCallback(item);
 
+    }
+    format_time(hour, minute) {
+        // formats a javascript Date object into a 12h AM/PM time string
+        var amPM = (hour > 11) ? "PM" : "AM";
+        if (hour > 12) {
+            hour -= 12;
+        } else if (hour == 0) {
+            hour = "12";
+        }
+        if (minute < 10) {
+            minute = "0" + minute;
+        }
+        return hour + ":" + minute + amPM;
     }
 }

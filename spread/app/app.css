@@ -32,7 +32,28 @@ ActionBar {
     font-family: "FallingSkyLight";
     font-weight: bold;
 }
-
+.listDate{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-weight: bold;
+    font-size: 25;
+    text-align: center;
+}
+.listMonth{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-size: 21;
+    text-align: center;
+}
+.listTime{
+    background-color: #fc7b5c;
+    color: white;
+    font-family: "FallingSkyLight";
+    font-size: 19;
+    text-align: center;
+}
 .submitBtn {
     background-color: #2196f3;
     border-radius: 20;

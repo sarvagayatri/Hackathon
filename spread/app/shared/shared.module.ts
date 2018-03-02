@@ -8,7 +8,7 @@ import { NativeScriptHttpModule } from "nativescript-angular/http";
 import { DropDownModule } from "nativescript-drop-down/angular";
 import { NativeScriptUISideDrawerModule } from "nativescript-pro-ui/sidedrawer/angular";
 import { DrawerComponent } from './drawer/drawer.component';
-import { DateDDMMMYYYTimePipe, DateDDMMMYYYPipe } from "./valueConverters";
+import { DateDDMMMYYYTimePipe, DateDDMMMYYYPipe, DateDDPipe, DateMMMPipe } from "./valueConverters";
 import { TNSCheckBoxModule } from 'nativescript-checkbox/angular';
 
 const SHARED_MODULES = [
@@ -31,7 +31,9 @@ const SHARED_MODULES = [
     declarations: [
         DrawerComponent,
         DateDDMMMYYYTimePipe,
-        DateDDMMMYYYPipe
+        DateDDMMMYYYPipe,
+        DateDDPipe,
+        DateMMMPipe
     ],
     exports: [
         NativeScriptUISideDrawerModule,
@@ -43,7 +45,9 @@ const SHARED_MODULES = [
         DropDownModule,
         DrawerComponent,
         DateDDMMMYYYTimePipe,
-        DateDDMMMYYYPipe
+        DateDDMMMYYYPipe,
+        DateDDPipe,
+        DateMMMPipe
     ],
     schemas: [
         NO_ERRORS_SCHEMA

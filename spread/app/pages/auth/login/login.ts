@@ -34,11 +34,12 @@ export class LoginComponent implements OnInit {
             .then(() => {
                 this.checkUserLoggedIn();
             }).catch((error) => {
-                this.checkUserLoggedIn();
+                console.log("Error in login ngonit", error);
+                // this.checkUserLoggedIn();
             });
     }
     checkUserLoggedIn() {
-        let customer = JSON.parse(CacheManager.get('account')) || '';
+        let customer = CacheManager.get('account') && JSON.parse(CacheManager.get('account')) || null;
         if (customer) {
             this.appState.customer = customer;
             console.log("appstate customer::", JSON.stringify(this.appState.customer));
