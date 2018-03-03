@@ -29,7 +29,6 @@ export class WorkshopDetailComponent {
     }
     checkEnableStatus() {
         this.selfCreator = this.customerId === this.workshop.createdBy ? true : false;
-        console.log("cand::", JSON.stringify(this.workshop.interestedCandidates));
         let candidateIds = getNames(this.workshop.interestedCandidates);
         let isExists = candidateIds.filter(id => {
             return id === this.appState.customer.id;
@@ -38,11 +37,7 @@ export class WorkshopDetailComponent {
     }
 
     interested() {
-        let obj = {};
-        obj[`${this.appState.customer.id}`] = true;
-        console.log("Obj", JSON.stringify(obj));
-        // this.workshop.interestedCandidates.push(obj);
-        this.workshopService.update1(this.workshop, this.appState.customer.id).then(result => {
+        this.workshopService.appendChild(this.workshop, this.appState.customer.id).then(result => {
             console.log("wORKSHOP UPDATED");
             this.router.navigate(["/workshopList"]);
         });

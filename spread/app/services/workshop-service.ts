@@ -49,29 +49,24 @@ export class WorkshopService {
             }
         });
     }
-    // geUserInterestedWorkshops(customerId: string): Promise<any> {
-    //     let dbPath = `${DB_PATH.WILLING}/`;
-    //     return true;
-    //     // return this.firebaseService.getDetailsByQuery
-    // }
-    update(workshop: Workshop): Promise<any> {
-        let path = `${DB_PATH.WORKSHOPS}/${workshop.id}/interestedCandidates`;
-        return new Promise((resolve, reject) => {
-            return this.firebaseService.update(path, "true").then(() => {
-                resolve(workshop);
-            }).catch((error) => {
-                reject(error);
+    getWorkshops(): Promise<any> {
+        let dbPath = `${DB_PATH.WORKSHOPS}`;
+            return this.firebaseService.getDetailsByQuery(dbPath).then((result) => {
+                if (!result.error && result.value) {
+                    return result.value;
+                }
             });
+    }
+    update(workshop: Workshop): Promise<any> {
+        let path = `${DB_PATH.WORKSHOPS}/${workshop.id}`;
+        return new Promise((resolve, reject) => {
+            return this.firebaseService.update(path, workshop);
         });
     }
-    update1(workshop: Workshop, child: string): Promise<any> {
+    appendChild(workshop: Workshop, child: string): Promise<any> {
         let path = `${DB_PATH.WORKSHOPS}/${workshop.id}/interestedCandidates/${child}`;
         return new Promise((resolve, reject) => {
-            return this.firebaseService.setValue(path, true).then(() => {
-                resolve(workshop);
-            }).catch((error) => {
-                reject(error);
-            });
+            return this.firebaseService.setValue(path, true);
         });
     }
 }

@@ -14,6 +14,8 @@ import { ProfileComponent } from './pages/auth/profile/profile'
 import { UserWorkshopsComponent } from "./pages/workshops/user-workshops/workshops-user";
 import { WorkshopDetailComponent } from "./pages/workshops/workshop-details/workshop-detail";
 import { WorkshopUpdateComponent } from "./pages/workshops/workshop-update/workshop-update";
+import { WorkshopsWillingComponent } from "./pages/workshops/workshop-willing/workshops-willing";
+
 
 import { ModalDialogService } from "nativescript-angular/modal-dialog";
 import { ModalComponent } from "./pages/modal-dailog/modal-dailog";
@@ -39,7 +41,8 @@ import { ModalComponent } from "./pages/modal-dailog/modal-dailog";
         ProfileComponent,
         UserWorkshopsComponent,
         WorkshopDetailComponent,
-        WorkshopUpdateComponent
+        WorkshopUpdateComponent,
+        WorkshopsWillingComponent
     ],
     entryComponents: [ModalComponent],
     providers: [

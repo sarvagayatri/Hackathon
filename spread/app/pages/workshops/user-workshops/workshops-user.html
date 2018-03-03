@@ -69,14 +69,12 @@
                 </GridLayout>
                 <Button class="btn btn-primary" text="Edit" (tap)="editWorkshop(workshop)"></Button>
               </StackLayout>
-
-              <StackLayout *ngIf="noUpcomingWorkshops">
-                <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
-                  <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
-                  <Label text="You Don't Have any Previous workshops" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold "
-                    style="color:#989898;;"></Label>
-                </FlexboxLayout>
-              </StackLayout>
+            </StackLayout>
+            <StackLayout *ngIf="noUpcomingWorkshops">
+              <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
+                <Label text="You Don't Have any workshops" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold " style="color:#989898;;"></Label>
+              </FlexboxLayout>
             </StackLayout>
           </ScrollView>
         </StackLayout>
@@ -144,9 +142,9 @@
                   style="color:#989898;;"></Label>
               </FlexboxLayout>
             </StackLayout>
-        </ScrollView>
-  </StackLayout>
-  </TabView>
-  </DockLayout>
+          </ScrollView>
+        </StackLayout>
+      </TabView>
+    </DockLayout>
   </StackLayout>
 </RadSideDrawer>
