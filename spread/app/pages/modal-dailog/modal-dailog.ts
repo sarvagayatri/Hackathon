@@ -16,20 +16,22 @@ export class ModalComponent implements OnInit {
     constructor(private params: ModalDialogParams, private page: Page) {
         this.type = params.context.type;
         this.page.on("unloaded", () => {
-            this.params.closeCallback();
+            this.params.closeCallback(null);
         });
     }
 
     ngOnInit() {
-        this.categories = ["Education", "activity", "art & craft", "cooking/baking", "others"];
-        this.cities = ["Mumbai", "Hyderabad", "Machilipatnam"];
+        this.categories = ["Education", "Art & Craft", "Cooking/Baking", "Activity", "Others"];
+        this.cities = ["Mumbai", "Hyderabad", "Visakhaptnam"];
     }
-
+    close(res: string) {
+        this.params.closeCallback(res);
+    }
     public submitDateTime() {
         let datePicker: DatePicker = <DatePicker>this.page.getViewById<DatePicker>("datePicker");
         let timePicker: TimePicker = <TimePicker>this.page.getViewById<TimePicker>("timePicker");
         let result = {
-            date: `${datePicker.date}`,
+            date: `${datePicker.date}` || null,
             time: this.format_time(timePicker.hour, timePicker.minute)
         };
         this.params.closeCallback(result);

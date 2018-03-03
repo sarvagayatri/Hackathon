@@ -29,8 +29,9 @@ export class WorkshopDetailComponent {
     }
     checkEnableStatus() {
         this.selfCreator = this.customerId === this.workshop.createdBy ? true : false;
-        let candidateIds = getNames(this.workshop.interestedCandidates);
-        let isExists = candidateIds.filter(id => {
+        let candidateIds = this.workshop.interestedCandidates && getNames(this.workshop.interestedCandidates) || [];
+
+        let isExists = candidateIds && candidateIds.filter(id => {
             return id === this.appState.customer.id;
         });
         this.alreadyLiked = isExists && isExists.length > 0;

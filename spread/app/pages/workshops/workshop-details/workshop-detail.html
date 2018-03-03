@@ -1,6 +1,6 @@
 <ActionBar>
     <NavigationButton android.systemIcon="ic_menu_back" [nsRouterLink]="['/workshopList']"></NavigationButton>
-    <Label class="action-bar-title" text="Workshop Detail"></Label>
+    <Label class="action-bar-title" [text]="workshop.title"></Label>
 </ActionBar>
 <DockLayout>
     <ScrollView>
@@ -10,7 +10,6 @@
                     <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
                     <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
                 </StackLayout>
-
 
                 <StackLayout orientation="horizontal">
                     <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>

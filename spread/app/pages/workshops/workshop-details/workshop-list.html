@@ -2,10 +2,7 @@
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
     </ActionItem>
-    <Label class="action-bar-title" text="Workshops"></Label>
-    <ActionItem>
-        <label [text]="city" (tap)="showModal(3)"></label>
-    </ActionItem>
+    <label [text]="'Workshops In - ' +city" (tap)="showModal(3)"></label>
 </ActionBar>
 <RadSideDrawer #drawerComponent tkToggleNavButton>
     <ScrollView tkDrawerContent class="drawer-content">
@@ -33,9 +30,9 @@
                                         <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(item)">
                                             <StackLayout row="0" col="0" class="m-l-5 listContent">
                                                 <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#ff0000;font-size: 20;"></Label>
-                                                <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2" style="color:#124613"></Label>
-                                                <Label [text]="'Category:  ' +item.category" textWrap="true" style="color:#492476;" class="t-12 q-f-l"></Label>
-                                                <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true"></Label>
+                                                <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2" style="color:#ff0000;font-size: 18;"></Label>
+                                                <Label [text]="'Category:  ' +item.category" textWrap="true" style="color:#ff0000;font-size: 12;" class="t-12 q-f-l"></Label>
+                                                <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true" style="color:#ff0000;font-size: 12;"></Label>
 
                                             </StackLayout>
                                             <StackLayout row="0" col="1">

@@ -18,55 +18,52 @@
             <ScrollView>
               <StackLayout *ngIf="!noUpcomingWorkshops">
                 <StackLayout *ngFor="let workshop of upcomingWorkshops" verticalAlignment="center">
-                  <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="*,2*" backgroundColor="#FFFFFF">
-  
-                    <Label text="Title:" row="0" col="0" class="label t-16   m-5"></Label>
-                    <Label [text]="workshop.title" row="0" col="1" textWrap="true" class="label  m-5"></Label>
-  
-  
-                    <StackLayout class="hr-light" row="1" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf007;" row="2" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.who" row="2" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="3" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf073;" row="4" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.date | date_ddmmmyyyy" row="4" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="5" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf2bb;" row="6" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.address" row="6" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="7" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf156;" row="8" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.fee" row="8" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="9" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf095;" row="10" col="0" class="fa t-16   label  m-5"></Label>
-                    <Label [text]="workshop.contactNumber" row="10" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="11" colspan="2"></StackLayout>
-  
-                    <Label text="Pre-Requisites" row="12" col="0" textWrap="true" class="label  t-16  m-5"></Label>
-                    <Label [text]="workshop.preRequisites" row="12" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="13" colspan="2"></StackLayout>
-  
-                    <Label text="Category" row="14" col="0" textWrap="true" class="label  t-16  m-5"></Label>
-                    <Label [text]="workshop.category" row="14" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="15" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf041;" row="16" col="0" class="fa t-16 label m-5"></Label>
-                    <Label [text]="workshop.city" row="16" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="17" colspan="2"></StackLayout>
-  
-                  </GridLayout>
+                    <StackLayout class="m-20">
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
+                            <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
+                            <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+                            <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+                            <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+                            <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+                            <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
+                            <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
+                            <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
+                            <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
   
                 <StackLayout *ngIf="noUpcomingWorkshops">
@@ -84,55 +81,52 @@
             <ScrollView>
               <StackLayout *ngIf="!noPastWorkshops">
                 <StackLayout *ngFor="let workshop of pastWorkshops" verticalAlignment="center">
-                  <GridLayout rows="*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*,*" columns="*,2*" backgroundColor="#FFFFFF">
-  
-                    <Label text="Title:" row="0" col="0" class="label t-16   m-5"></Label>
-                    <Label [text]="workshop.title" row="0" col="1" textWrap="true" class="label  m-5"></Label>
-  
-  
-                    <StackLayout class="hr-light" row="1" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf007;" row="2" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.who" row="2" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="3" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf073;" row="4" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.date | date_ddmmmyyyy" row="4" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="5" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf2bb;" row="6" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.address" row="6" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="7" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf156;" row="8" col="0" class="fa t-16  label  m-5"></Label>
-                    <Label [text]="workshop.fee" row="8" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="9" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf095;" row="10" col="0" class="fa t-16   label  m-5"></Label>
-                    <Label [text]="workshop.contactNumber" row="10" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="11" colspan="2"></StackLayout>
-  
-                    <Label text="Pre-Requisites" row="12" col="0" textWrap="true" class="label  t-16  m-5"></Label>
-                    <Label [text]="workshop.preRequisites" row="12" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="13" colspan="2"></StackLayout>
-  
-                    <Label text="Category" row="14" col="0" textWrap="true" class="label  t-16  m-5"></Label>
-                    <Label [text]="workshop.category" row="14" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="15" colspan="2"></StackLayout>
-  
-                    <Label text="&#xf041;" row="16" col="0" class="fa t-16 label m-5"></Label>
-                    <Label [text]="workshop.city" row="16" col="1" textWrap="true" class="label  m-5"></Label>
-  
-                    <StackLayout class="hr-light" row="17" colspan="2"></StackLayout>
-  
-                  </GridLayout>
+                    <StackLayout class="m-20">
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
+                            <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
+                            <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+                            <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+                            <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+                            <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+                            <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
+                            <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
+                            <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+        
+                        <StackLayout orientation="horizontal">
+                            <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
+                            <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                        </StackLayout>
+                    </StackLayout>
                 </StackLayout>
               </StackLayout>
               <StackLayout *ngIf="noPastWorkshops">

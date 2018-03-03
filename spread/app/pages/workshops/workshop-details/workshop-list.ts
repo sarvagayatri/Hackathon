@@ -44,7 +44,6 @@ export class WorkshopListComponent extends DrawerPage {
         loader.show(loaderOptions);
         this.workshopService.getWorkshopDetails(city).then((result) => {
             this.dbWorkshops = toCustomArray(result);
-            console.log("intes::", JSON.stringify(this.dbWorkshops));
             this.dbWorkshops.forEach(workshop => {
                 workshop.interestedCount =
                     workshop.interestedCandidates && getNames(workshop.interestedCandidates).length || 0;
@@ -96,11 +95,11 @@ export class WorkshopListComponent extends DrawerPage {
         };
         this.modal.showModal(ModalComponent, options).then(res => {
             if (modelType === ModelTypes.City) {
-                this.city = res;
+                this.city = res || this.city;
                 this.getWorkshopDetails(this.city);
             }
             if (modelType === ModelTypes.Category) {
-                this.category = res;
+                this.category = res || "Education";
                 this.filterWokshopsByCategory(this.category);
             }
         });

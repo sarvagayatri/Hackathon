@@ -64,16 +64,16 @@ export class WorkshopComponent extends DrawerPage {
 
             switch (modelType) {
                 case ModelTypes.DateTime:
-                    let resultDate: Date = new Date(res.date);
-                    this.workshop.date = resultDate.getTime();
-                    this.workshop.time = res.time;
+                    let resultDate: Date = res && res.date && new Date(res.date) || null;
+                    this.workshop.date = resultDate && resultDate.getTime() || null;
+                    this.workshop.time = res && res.time || null;
                     break;
 
                 case ModelTypes.Category:
-                    this.workshop.category = res;
+                    this.workshop.category = res || '';
                     break;
                 case ModelTypes.City:
-                    this.workshop.city = res;
+                    this.workshop.city = res || '';
                     break;
             }
         });
