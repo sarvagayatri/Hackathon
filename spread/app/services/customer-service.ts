@@ -19,10 +19,10 @@ export class CustomerService {
                 return this.firebaseService.setValue(path, customer).then((results) => {
                     resolve(customer);
                 }).catch((error) => {
-                    reject(error);
+                    console.log("error block service::", error);
+                    reject("The email address is already in use by another account.");
                 });
             });
-
         });
     }
 

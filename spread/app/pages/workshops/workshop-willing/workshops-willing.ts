@@ -39,8 +39,8 @@ export class WorkshopsWillingComponent extends DrawerPage {
     }
     getUserWorkshops(workshops) {
         let willingWorkshops = workshops.filter(workshop => {
-            console.log("Worr::", workshop);
-            let candidateIds = getNames(workshop.interestedCandidates);
+            console.log("Worr::", JSON.stringify(workshop));
+            let candidateIds = workshop.interestedCandidates && getNames(workshop.interestedCandidates) || [];
             console.log("candidateIds:::", candidateIds);
             return candidateIds.filter(id => {
                 return id === this.customer.id;

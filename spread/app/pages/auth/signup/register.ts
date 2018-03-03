@@ -18,6 +18,11 @@ export class RegisterComponent {
     password: string = null;
     public constructor(private location: Location,
         private customerService: CustomerService) {
+        this.customer.name = "John";
+        this.customer.email = "john@pp.com";
+        this.customer.mobileNumber = "9876543211";
+        this.customer.city = "hyderabad";
+        this.password = "test@123";
     }
 
     public register() {
@@ -25,6 +30,9 @@ export class RegisterComponent {
             this.customerService.save(this.customer, this.password).then((result) => {
                 CacheManager.set("account", JSON.stringify(this.customer));
                 this.location.back();
+            }).catch(error => {
+                console.log("catch block::", error);
+                (new SnackBar()).simple("User Already Exists!");
             });
         } else {
             (new SnackBar()).simple("All Fields Required!");
