@@ -30,18 +30,25 @@
                                             <Label [text]="item.date | date_mmm" textWrap="true" class="listMonth"></Label>
                                             <Label [text]="item.time" textWrap="true" class="listTime"></Label>
                                         </StackLayout>
-                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1">
+                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(item)">
                                             <StackLayout row="0" col="0" class="m-l-5 listContent">
                                                 <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#ff0000;font-size: 20;"></Label>
                                                 <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2" style="color:#124613"></Label>
                                                 <Label [text]="'Category:  ' +item.category" textWrap="true" style="color:#492476;" class="t-12 q-f-l"></Label>
                                                 <Label [text]="'Contact Number: '+item.contactNumber" class="t-12" textWrap="true"></Label>
+
                                             </StackLayout>
-                                            <StackLayout row="0" col="1" (tap)="navigation(item)">
+                                            <!-- <StackLayout row="0" col="1" (tap)="navigation(item)">
                                                 <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
                                                 <Label text="" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
                                                 <Label text="&#xf054;" textWrap="true" class="fa c-blue t-17" horizontalAlignment="center"></Label>
+                                            </StackLayout> -->
+                                            <StackLayout row="0" col="1">
+                                                <Label text="" textWrap="true" class="fa person t-17" horizontalAlignment="center"></Label>
+                                                <Label text="&#xf0c0;" textWrap="true" class="fa c-orange t-17" horizontalAlignment="center"></Label>
+                                                <Label [text]="item.interestedCount" textWrap="true" class="fa person t-17" horizontalAlignment="center"></Label>
                                             </StackLayout>
+
                                         </GridLayout>
                                     </GridLayout>
                                 </StackLayout>

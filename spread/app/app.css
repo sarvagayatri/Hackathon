@@ -175,6 +175,11 @@ ActionBar {
         color:#fc7b5c;
      
     }
+    .person{
+        color:#fc7b5c;
+        font-family: "FallingSkyLight";
+        font-size: 14;
+    }
     .br-1 {
         border-radius: 1;
     }

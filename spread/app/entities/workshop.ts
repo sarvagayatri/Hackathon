@@ -17,4 +17,5 @@ export class Workshop {
     interestedCandidates: Array<any>;
     rating: number;
     city_category: string = "";
+    interestedCount: number;
 }

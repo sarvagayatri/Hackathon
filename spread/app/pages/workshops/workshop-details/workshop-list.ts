@@ -9,6 +9,7 @@ import { ModalComponent } from "./../../modal-dailog/modal-dailog";
 import { ModelTypes } from './../../../common/enums'
 import { ModalDialogService, ModalDialogOptions } from "nativescript-angular/directives/dialogs";
 import { loaderOptions } from "./../../../utils";
+import { getNames } from "../../../common/utility";
 var LoadingIndicator = require("nativescript-loading-indicator").LoadingIndicator;
 var loader = new LoadingIndicator();
 
@@ -43,6 +44,10 @@ export class WorkshopListComponent extends DrawerPage {
         loader.show(loaderOptions);
         this.workshopService.getWorkshopDetails(city).then((result) => {
             this.dbWorkshops = toCustomArray(result);
+            this.dbWorkshops.forEach(workshop => {
+                workshop.interestedCount = getNames(workshop.interestedCandidates).length;
+                console.log("count:::", workshop.interestedCount); 
+            });
             this.filterWorkshopsByDate(this.dbWorkshops);
             loader.hide();
         });

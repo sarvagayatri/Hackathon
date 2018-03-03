@@ -22,7 +22,7 @@ export class WorkshopComponent extends DrawerPage {
         private appState: ApplicationStateService,
         private fireBaseService: FireBaseService,
         private vcRef: ViewContainerRef,
-        private modal: ModalDialogService ) {
+        private modal: ModalDialogService) {
         super(changeDetectorRef);
         this.workshop = {
             id: null,
@@ -42,7 +42,8 @@ export class WorkshopComponent extends DrawerPage {
             createdDate: new Date().getTime(),
             interestedCandidates: null,
             city_category: "",
-            rating: 0
+            rating: 0,
+            interestedCount: 0
         }
     }
     registerWorkshop() {
