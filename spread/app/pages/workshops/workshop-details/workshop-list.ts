@@ -44,9 +44,10 @@ export class WorkshopListComponent extends DrawerPage {
         loader.show(loaderOptions);
         this.workshopService.getWorkshopDetails(city).then((result) => {
             this.dbWorkshops = toCustomArray(result);
+            console.log("intes::", JSON.stringify(this.dbWorkshops));
             this.dbWorkshops.forEach(workshop => {
-                workshop.interestedCount = getNames(workshop.interestedCandidates).length;
-                console.log("count:::", workshop.interestedCount); 
+                workshop.interestedCount =
+                    workshop.interestedCandidates && getNames(workshop.interestedCandidates).length || 0;
             });
             this.filterWorkshopsByDate(this.dbWorkshops);
             loader.hide();
@@ -93,7 +94,6 @@ export class WorkshopListComponent extends DrawerPage {
             },
             fullscreen: false,
         };
-        console.log("show model called::", modelType);
         this.modal.showModal(ModalComponent, options).then(res => {
             if (modelType === ModelTypes.City) {
                 this.city = res;
