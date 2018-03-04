@@ -1,3 +1,4 @@
+import { SnackBar } from 'nativescript-snackbar';
 import { Component, OnInit, ChangeDetectorRef, ViewContainerRef } from "@angular/core";
 import { Customer, Workshop } from './../../../entities';
 import { WorkshopService, FireBaseService } from './../../../services'
@@ -24,33 +25,38 @@ export class WorkshopComponent extends DrawerPage {
         private vcRef: ViewContainerRef,
         private modal: ModalDialogService) {
         super(changeDetectorRef);
-        this.workshop = {
-            id: null,
-            title: "Join C#",
-            who: "Gayatri",
-            date: new Date().getTime(),
-            time: '11.00 AM',
-            address: "Plot No C-45, G Block, Videsh Bhavan, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",
-            fee: "200",
-            contactNumber: "022 2652 0016",
-            preRequisites: "32-bit (x86) or 64-bit (x64) processors, Dual-core, 2.66-GHz or faster processor, USB 2.0 bus dedicated to the Kinect",
-            category: "Education",
-            categoryLowercase: "",
-            city: "Mumbai",
-            cityLowercase: "",
-            createdBy: this.appState.customer.id,
-            createdDate: new Date().getTime(),
-            interestedCandidates: null,
-            city_category: "",
-            rating: 0,
-            interestedCount: 0
-        }
+        // this.workshop = {
+        //     id: null,
+        //     title: "Join C#",
+        //     who: "Gayatri",
+        //     date: new Date().getTime(),
+        //     time: '11.00 AM',
+        //     address: "Plot No C-45, G Block, Videsh Bhavan, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",
+        //     fee: "200",
+        //     contactNumber: "022 2652 0016",
+        //     preRequisites: "32-bit (x86) or 64-bit (x64) processors, Dual-core, 2.66-GHz or faster processor, USB 2.0 bus dedicated to the Kinect",
+        //     category: "Education",
+        //     categoryLowercase: "",
+        //     city: "Mumbai",
+        //     cityLowercase: "",
+        //     createdBy: this.appState.customer.id,
+        //     createdDate: new Date().getTime(),
+        //     interestedCandidates: null,
+        //     city_category: "",
+        //     rating: 0,
+        //     interestedCount: 0
+        // }
     }
     registerWorkshop() {
-        this.workshopService.save(this.workshop).then((result) => {
-            console.log("insert result success");
-            this.router.navigate(["/workshopList"]);
-        })
+        if(!this.workshop.city && !this.workshop.category && !this.workshop.title){
+            this.workshopService.save(this.workshop).then((result) => {
+                console.log("insert result success");
+                this.router.navigate(["/workshopList"]);
+            });
+        }
+        else{
+            (new SnackBar()).simple("All Fields Required!");
+        }
     }
     public showModal(modelType: number) {
         const options: ModalDialogOptions = {

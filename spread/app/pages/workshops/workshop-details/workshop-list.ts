@@ -27,6 +27,10 @@ export class WorkshopListComponent extends DrawerPage {
     category: string;
     categories: string[];
     dbWorkshops: any;
+    workshopType = {
+        "past": 1,
+        "upcoming": 2
+    }
     constructor(private changeDetectorRef: ChangeDetectorRef,
         private workshopService: WorkshopService,
         private router: Router,
@@ -61,10 +65,11 @@ export class WorkshopListComponent extends DrawerPage {
         this.filterWorkshopsByDate(categoryWorkshops);
         loader.hide();
     }
-    navigation(workshop) {
+    navigation(workshop, type) {
         let navigationExtras: NavigationExtras = {
             queryParams: {
-                "workshop": JSON.stringify(workshop)
+                "workshop": JSON.stringify(workshop),
+                "type": type
             }
         };
         this.router.navigate(["/workshop-detail"], navigationExtras);

@@ -14,6 +14,11 @@ export class WorkshopDetailComponent {
     customerId: string;
     selfCreator: boolean = false;
     alreadyLiked: boolean = false;
+    previousWorkshop: boolean = false;
+    workshopType = {
+        "past": 1,
+        "upcoming": 2
+    }
     constructor(private route: ActivatedRoute,
         private router: Router,
         private appState: ApplicationStateService,
@@ -22,6 +27,7 @@ export class WorkshopDetailComponent {
     ngOnInit(): void {
         this.route.queryParams.subscribe((params: any) => {
             this.workshop = JSON.parse(params["workshop"]);
+            this.previousWorkshop = +params["type"] === this.workshopType.past;
             this.customerId = this.appState.customer.id;
             this.checkEnableStatus();
             console.log("received workshop:::", this.workshop);
