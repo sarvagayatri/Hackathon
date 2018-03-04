@@ -6,6 +6,8 @@ import * as firebase from "nativescript-plugin-firebase";
 import { ApplicationStateService } from './../../../common';
 import { toCustomArray } from "../../../common/utility";
 import { CacheManager } from "../../../common/cache-manager";
+import { Page } from "ui/page";
+
 
 @Component({
     moduleId: module.id,
@@ -19,6 +21,7 @@ export class LoginComponent implements OnInit {
     public displayStatus: boolean;
 
     public constructor(private router: RouterExtensions,
+        private page: Page,
         private fireBaseService: FireBaseService,
         private userService: UserService,
         private customerService: CustomerService,
@@ -27,6 +30,7 @@ export class LoginComponent implements OnInit {
     }
 
     public ngOnInit() {
+        this.page.actionBarHidden = true;
         return this.initFirebase()
             // .then(() => {
             //     CacheManager.remove('account');

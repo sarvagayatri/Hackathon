@@ -12,7 +12,7 @@ refer to http://docs.nativescript.org/ui/theme.
 @import 'nativescript-theme-core/css/core.light.css';
 
 .background {
-    background-image: url("res://background");
+    background-image: url("res://screen1");
     /* background-image: url("res://screen"); */
     background-repeat: no-repeat;
     background-size:100% 100%;
@@ -164,6 +164,9 @@ ActionBar {
     }
     .c-bg-gray{
         background-color: #cdd5d8;
+    }
+    .c-bg-orange{
+        background-color: #fc7b5c;
     }
     .c-blue {
         color: #32b5ec;
