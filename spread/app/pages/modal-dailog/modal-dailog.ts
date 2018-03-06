@@ -22,7 +22,19 @@ export class ModalComponent implements OnInit {
 
     ngOnInit() {
         this.categories = ["Education", "Art & Craft", "Cooking/Baking", "Activity", "Others"];
-        this.cities = ["Mumbai", "Hyderabad", "Visakhaptnam"];
+        this.cities = ["Mumbai", "Pune", "Hyderabad", "Visakhaptnam"];
+     
+        let datePicker: DatePicker = <DatePicker>this.page.getViewById<DatePicker>("datePicker");
+        console.log("view id::", datePicker);
+        if (datePicker) {
+            console.log("came inside ng date");
+            let today = new Date();
+            datePicker.year = today.getFullYear();
+            datePicker.month = today.getMonth() + 1;
+            datePicker.day = today.getDate();
+            datePicker.minDate = new Date();
+            datePicker.maxDate = new Date(2045, 4, 12);
+        }
     }
     close(res: string) {
         this.params.closeCallback(res);
@@ -31,7 +43,7 @@ export class ModalComponent implements OnInit {
         let datePicker: DatePicker = <DatePicker>this.page.getViewById<DatePicker>("datePicker");
         let timePicker: TimePicker = <TimePicker>this.page.getViewById<TimePicker>("timePicker");
         let result = {
-            date: `${datePicker.date}` || null,
+            date: `${datePicker.date}`,
             time: this.format_time(timePicker.hour, timePicker.minute)
         };
         this.params.closeCallback(result);
@@ -60,6 +72,6 @@ export class ModalComponent implements OnInit {
         if (minute < 10) {
             minute = "0" + minute;
         }
-        return hour + ":" + minute + amPM;
+        return hour + ":" + minute + amPM || '';
     }
 }
