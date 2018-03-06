@@ -2,7 +2,7 @@
     <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="openDrawer()"></NavigationButton>
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
     </ActionItem>
-    <label [text]="'Workshops In - ' +city" (tap)="showModal(3)"></label>
+    <label [text]="'Workshops In - ' +city+ '  ' +'&#xf103;'" (tap)="showModal(3)" class="fa"></label>
 </ActionBar>
 <RadSideDrawer #drawerComponent tkToggleNavButton>
     <ScrollView tkDrawerContent class="drawer-content">
