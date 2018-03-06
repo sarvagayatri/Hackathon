@@ -26,6 +26,10 @@ refer to http://docs.nativescript.org/ui/theme.
     padding: 15;
     font-size: 20;
   }
+  .big-icon {
+    font-size: 44px;
+    color: #fc7b5c;
+}
 ActionBar {
     background-color: #fc7b5c;
     color: white;

@@ -27,7 +27,7 @@
                                             <Label [text]="item.date | date_mmm" textWrap="true" class="listMonth"></Label>
                                             <Label [text]="item.time" textWrap="true" class="listTime"></Label>
                                         </StackLayout>
-                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(itemworkshopType.upcoming)">
+                                        <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(item,workshopType.upcoming)">
                                             <StackLayout row="0" col="0" class="m-l-5 listContent">
                                                 <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#ff0000;font-size: 20;"></Label>
                                                 <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2" style="color:#ff0000;font-size: 18;"></Label>
@@ -88,7 +88,7 @@
                                                 <Label [text]="item.date | date_mmm" textWrap="true" class="listMonth"></Label>
                                                 <Label [text]="item.time" textWrap="true" class="listTime"></Label>
                                             </StackLayout>
-                                            <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(itemworkshopType.upcoming)">
+                                            <GridLayout rows="*,*" columns="2*,*" class="c-bg-gray" row="0" col="1" (tap)="navigation(item,workshopType.past)">
                                                 <StackLayout row="0" col="0" class="m-l-5 listContent">
                                                     <Label [text]="item.title" textWrap="true" class="t-17 m-t-2" style="color:#ff0000;font-size: 20;"></Label>
                                                     <Label [text]="'By: '+item.who" textWrap="true" class="t-12 m-t-2" style="color:#ff0000;font-size: 18;"></Label>

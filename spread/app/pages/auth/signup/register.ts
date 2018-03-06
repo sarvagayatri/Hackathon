@@ -6,6 +6,7 @@ import { Customer } from './../../../entities';
 import { CustomerService } from './../../../services'
 import { CacheManager } from "../../../common/cache-manager";
 import { isValidEmail, isValidMobileNumber, isValidCity } from "../../../common/validations";
+import { Page } from "ui/page";
 
 @Component({
     moduleId: module.id,
@@ -17,14 +18,17 @@ export class RegisterComponent {
     customer: Customer = new Customer();
     password: string = null;
     public constructor(private location: Location,
-        private customerService: CustomerService) {
+        private customerService: CustomerService,
+        private page: Page) {
         this.customer.name = "John";
         this.customer.email = "john@pp.com";
         this.customer.mobileNumber = "9876543211";
         this.customer.city = "hyderabad";
         this.password = "test@123";
     }
-
+    public ngOnInit() {
+        this.page.actionBarHidden = true;
+    }
     public register() {
         if (this.validateSignUpDetails()) {
             this.customerService.save(this.customer, this.password).then((result) => {
