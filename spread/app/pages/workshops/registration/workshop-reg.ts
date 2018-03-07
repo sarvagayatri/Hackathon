@@ -48,13 +48,15 @@ export class WorkshopComponent extends DrawerPage {
         // }
     }
     registerWorkshop() {
-        if(!this.workshop.city && !this.workshop.category && !this.workshop.title){
+        var today = new Date().getTime();
+        if (!this.workshop.city && !this.workshop.category &&
+            !this.workshop.title && this.workshop.date <= today) {
             this.workshopService.save(this.workshop).then((result) => {
                 console.log("insert result success");
                 this.router.navigate(["/workshopList"]);
             });
         }
-        else{
+        else {
             (new SnackBar()).simple("All Fields Required!");
         }
     }
