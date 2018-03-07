@@ -11,7 +11,7 @@ import { Page } from "ui/page";
 export class ModalComponent implements OnInit {
     @ViewChild("CB1") FirstCheckBox: ElementRef;
     public type: number;
-    public categories: Array<string> = [];
+    public categories: Array<any> = [];
     public cities: Array<string> = [];
     constructor(private params: ModalDialogParams, private page: Page) {
         this.type = params.context.type;
@@ -21,9 +21,29 @@ export class ModalComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.categories = ["Education", "Art & Craft", "Cooking/Baking", "Activity", "Others"];
         this.cities = ["Mumbai", "Pune", "Hyderabad", "Visakhaptnam"];
-     
+        this.categories = [{
+            'name': "Education",
+            "icon": String.fromCharCode(parseInt('f19d', 16))
+        },
+        {
+            'name': "Art & Craft",
+            "icon": String.fromCharCode(parseInt('f0c4', 16))
+        },
+        {
+            'name': "Cooking/Baking",
+            "icon": String.fromCharCode(parseInt('f1fd', 16))
+        },
+        {
+            'name': "Activity",
+            "icon": String.fromCharCode(parseInt('f434', 16))
+        },
+        {
+            'name': "Others",
+            "icon": String.fromCharCode(parseInt('f129', 16))
+        },
+        ]
+
         let datePicker: DatePicker = <DatePicker>this.page.getViewById<DatePicker>("datePicker");
         console.log("view id::", datePicker);
         if (datePicker) {

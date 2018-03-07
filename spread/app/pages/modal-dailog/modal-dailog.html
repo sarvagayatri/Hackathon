@@ -9,7 +9,8 @@
     <ListView [items]="categories" class="list-group">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
             <GridLayout class="list-group-item">
-                <Label [text]="item" (tap)="categoryClick(item)"></Label>
+                <Label [text]="item.icon + '  '" class="fa"></Label>
+                <Label [text]="item.name" (tap)="categoryClick(item.name)" class="fa"></Label>
             </GridLayout>
         </ng-template>
     </ListView>
@@ -38,54 +39,54 @@
 
 
 <StackLayout *ngIf="type === 5">
-        <StackLayout class="m-20">
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
-                <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+    <StackLayout class="m-20">
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
+            <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
-                <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
+            <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+            <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+            <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
+            <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
+            <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
-                <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
+            <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
-                <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
+            <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
 
-            <StackLayout orientation="horizontal">
-                <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
-                <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
-            </StackLayout>
-            <StackLayout *ngIf="!selfCreator">
-                <Button class="btn btn-primary custombtn" text="Interested" (tap)="interested()" *ngIf="!alreadyLiked"></Button>
-                <Button class="btn btn-primary custombtn" text="You already shown Willing to this" *ngIf="alreadyLiked"></Button>
-            </StackLayout>
+        <StackLayout orientation="horizontal">
+            <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
+            <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        </StackLayout>
+        <StackLayout *ngIf="!selfCreator">
+            <Button class="btn btn-primary custombtn" text="Interested" (tap)="interested()" *ngIf="!alreadyLiked"></Button>
+            <Button class="btn btn-primary custombtn" text="You already shown Willing to this" *ngIf="alreadyLiked"></Button>
         </StackLayout>
     </StackLayout>
+</StackLayout>
