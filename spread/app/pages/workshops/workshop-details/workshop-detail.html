@@ -50,7 +50,7 @@
                     <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
                     <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
                 </StackLayout>
-                <StackLayout *ngIf="!selfCreator || !previousWorkshop" >
+                <StackLayout *ngIf="!selfCreator && !previousWorkshop" >
                     <Button class="btn btn-primary custombtn" text="Interested" (tap)="interested()" *ngIf="!alreadyLiked"></Button>
                     <Label text="" textWrap="true"  *ngIf="alreadyLiked"></Label>
                     <Label text="&#xf164;" textWrap="true" class="fa big-icon" horizontalAlignment="center" *ngIf="alreadyLiked"></Label>

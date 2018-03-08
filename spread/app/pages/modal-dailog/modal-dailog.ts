@@ -45,7 +45,6 @@ export class ModalComponent implements OnInit {
         ]
 
         let datePicker: DatePicker = <DatePicker>this.page.getViewById<DatePicker>("datePicker");
-        console.log("view id::", datePicker);
         if (datePicker) {
             console.log("came inside ng date");
             let today = new Date();

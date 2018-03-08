@@ -25,40 +25,39 @@ export class WorkshopComponent extends DrawerPage {
         private vcRef: ViewContainerRef,
         private modal: ModalDialogService) {
         super(changeDetectorRef);
-        // this.workshop = {
-        //     id: null,
-        //     title: "Join C#",
-        //     who: "Gayatri",
-        //     date: new Date().getTime(),
-        //     time: '11.00 AM',
-        //     address: "Plot No C-45, G Block, Videsh Bhavan, Bandra Kurla Complex, Bandra East, Mumbai, Maharashtra 400051",
-        //     fee: "200",
-        //     contactNumber: "022 2652 0016",
-        //     preRequisites: "32-bit (x86) or 64-bit (x64) processors, Dual-core, 2.66-GHz or faster processor, USB 2.0 bus dedicated to the Kinect",
-        //     category: "Education",
-        //     categoryLowercase: "",
-        //     city: "Mumbai",
-        //     cityLowercase: "",
-        //     createdBy: this.appState.customer.id,
-        //     createdDate: new Date().getTime(),
-        //     interestedCandidates: null,
-        //     city_category: "",
-        //     rating: 0,
-        //     interestedCount: 0
-        // }
+        this.workshop = {
+            id: null,
+            title: "Yoga Sutra",
+            who: "Sangeeta",
+            date: new Date().getTime(),
+            time: '10.00 AM',
+            address: "C-4, Chinoy Mansion, Warden Road, Cumballa Hill, Mumbai, 400077.",
+            fee: "400",
+            contactNumber: "91-22-3210 7067",
+            preRequisites: "This scheme has been initiated keeping in mind the hectic lifestyle of Mumbaikars.",
+            category: "",
+            categoryLowercase: "",
+            city: "Mumbai",
+            cityLowercase: "",
+            createdBy: this.appState.customer.id,
+            createdDate: new Date().getTime(),
+            interestedCandidates: null,
+            city_category: "",
+            rating: 0,
+            interestedCount: 0
+        }
     }
     registerWorkshop() {
-        var today = new Date().getTime();
-        if (!this.workshop.city && !this.workshop.category &&
-            !this.workshop.title && this.workshop.date <= today) {
+        let today = new Date().getTime();
+        // if (!this.workshop.city && !this.workshop.category && !this.workshop.title) {
             this.workshopService.save(this.workshop).then((result) => {
                 console.log("insert result success");
                 this.router.navigate(["/workshopList"]);
             });
-        }
-        else {
-            (new SnackBar()).simple("All Fields Required!");
-        }
+        // }
+        // else {
+        //     (new SnackBar()).simple("Please Provide Valid Info!");
+        // }
     }
     public showModal(modelType: number) {
         const options: ModalDialogOptions = {

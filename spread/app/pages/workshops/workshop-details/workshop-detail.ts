@@ -34,6 +34,8 @@ export class WorkshopDetailComponent {
         });
     }
     checkEnableStatus() {
+        console.log("creator::", this.customerId);
+        console.log("cre::", this.workshop.createdBy);
         this.selfCreator = this.customerId === this.workshop.createdBy ? true : false;
         let candidateIds = this.workshop.interestedCandidates && getNames(this.workshop.interestedCandidates) || [];
 
