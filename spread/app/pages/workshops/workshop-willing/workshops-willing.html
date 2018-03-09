@@ -3,142 +3,148 @@
     <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="openDrawer()" ios.position="left">
     </ActionItem>
     <Label class="action-bar-title" text="My Willing Workshops"></Label>
-  </ActionBar>
-  <RadSideDrawer #drawerComponent tkToggleNavButton>
+</ActionBar>
+<RadSideDrawer #drawerComponent tkToggleNavButton>
     <ScrollView tkDrawerContent class="drawer-content">
-      <StackLayout horizontalAlignment="left">
-        <drawer-content></drawer-content>
-      </StackLayout>
+        <StackLayout horizontalAlignment="left">
+            <drawer-content></drawer-content>
+        </StackLayout>
     </ScrollView>
-  
+
     <StackLayout tkMainContent>
-      <DockLayout stretchLastChild="true">
-        <TabView>
-          <StackLayout *tabItem="{title: 'Upcoming'}">
-            <ScrollView>
-              <StackLayout *ngIf="!noUpcomingWorkshops">
-                <StackLayout *ngFor="let workshop of upcomingWorkshops" verticalAlignment="center">
-                    <StackLayout class="m-20">
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
-                            <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+        <DockLayout stretchLastChild="true" class="c-bg-gray">
+            <TabView>
+                <StackLayout *tabItem="{title: 'Upcoming'}">
+                    <ScrollView>
+                        <StackLayout *ngIf="!noUpcomingWorkshops">
+                            <StackLayout *ngFor="let workshop of upcomingWorkshops" verticalAlignment="center">
+                                <StackLayout class="m-10 br-10 c-bg-white">
+                                    <StackLayout class="c-bg-blue c-white t-16">
+                                        <Label [text]="workshop.category" class="m-5" horizontalAlignment="center"></Label>
+                                    </StackLayout>
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf005;" class="fa label c-blue t-25 w-20  m-5"></Label>
+                                        <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf007;" class="fa t-25  c-blue label w-20 m-5"></Label>
+                                        <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf017;" class="fa t-25 c-blue  label w-20 m-5"></Label>
+                                        <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf2bb;" class="fa t-25 c-blue  label w-20  m-5"></Label>
+                                        <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf156;" class="fa t-25 c-blue  label w-20 m-5"></Label>
+                                        <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf095;" class="fa t-25 c-blue  label w-20  m-5"></Label>
+                                        <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf069;" textWrap="true" class="fa label c-blue  t-25 w-20  m-5"></Label>
+                                        <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf092;" textWrap="true" class="fa label c-blue t-25 w-20 m-5"></Label>
+                                        <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf041;" class="fa c-blue t-25 label w-20 m-5"></Label>
+                                        <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+
+                            <StackLayout *ngIf="noUpcomingWorkshops">
+                                <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                                    <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
+                                    <Label text="You Don't Have any Willing workshops" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold "
+                                        style="color:#989898;;"></Label>
+                                </FlexboxLayout>
+                            </StackLayout>
                         </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
-                            <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                            <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                            <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                            <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                            <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
-                            <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
-                            <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
-                            <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-                    </StackLayout>
+                    </ScrollView>
                 </StackLayout>
-  
-                <StackLayout *ngIf="noUpcomingWorkshops">
-                  <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
-                    <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
-                    <Label text="You Don't Have any Willing workshops" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold "
-                      style="color:#989898;;"></Label>
-                  </FlexboxLayout>
+
+                <StackLayout *tabItem="{title: 'Past'}">
+                    <ScrollView>
+                        <StackLayout *ngIf="!noPastWorkshops">
+                            <StackLayout *ngFor="let workshop of pastWorkshops" verticalAlignment="center">
+                                <StackLayout class="m-10 br-10 c-bg-white">
+                                    <StackLayout class="c-bg-blue c-white t-16">
+                                        <Label [text]="workshop.category" class="m-5" horizontalAlignment="center"></Label>
+                                    </StackLayout>
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf005;" class="fa label c-blue t-25 w-20  m-5"></Label>
+                                        <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf007;" class="fa t-25  c-blue label w-20 m-5"></Label>
+                                        <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf017;" class="fa t-25 c-blue  label w-20 m-5"></Label>
+                                        <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf2bb;" class="fa t-25 c-blue  label w-20  m-5"></Label>
+                                        <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf156;" class="fa t-25 c-blue  label w-20 m-5"></Label>
+                                        <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf095;" class="fa t-25 c-blue  label w-20  m-5"></Label>
+                                        <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf069;" textWrap="true" class="fa label c-blue  t-25 w-20  m-5"></Label>
+                                        <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf092;" textWrap="true" class="fa label c-blue t-25 w-20 m-5"></Label>
+                                        <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+
+                                    <StackLayout orientation="horizontal">
+                                        <Label text="&#xf041;" class="fa c-blue t-25 label w-20 m-5"></Label>
+                                        <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
+                                    </StackLayout>
+                                </StackLayout>
+                            </StackLayout>
+                        </StackLayout>
+                        <StackLayout *ngIf="noPastWorkshops">
+                            <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
+                                <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
+                                <Label text="You Have't attended any workshops Previously" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold "
+                                    style="color:#989898;;"></Label>
+                            </FlexboxLayout>
+                        </StackLayout>
+                    </ScrollView>
                 </StackLayout>
-              </StackLayout>
-            </ScrollView>
-          </StackLayout>
-  
-          <StackLayout *tabItem="{title: 'Past'}">
-            <ScrollView>
-              <StackLayout *ngIf="!noPastWorkshops">
-                <StackLayout *ngFor="let workshop of pastWorkshops" verticalAlignment="center">
-                    <StackLayout class="m-20">
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf005;" class="fa label c-orange t-25 w-20  m-5"></Label>
-                            <Label [text]="workshop.title" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf007;" class="fa t-25  c-orange label w-20 m-5"></Label>
-                            <Label [text]="workshop.who" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf017;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                            <Label [text]="( workshop.date | date_ddmmmyyyy) + ', ' + workshop.time" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf2bb;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                            <Label [text]="workshop.address" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf156;" class="fa t-25 c-orange  label w-20 m-5"></Label>
-                            <Label [text]="workshop.fee+'/-'" textWrap="true" class="label t-17 m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf095;" class="fa t-25 c-orange  label w-20  m-5"></Label>
-                            <Label [text]="workshop.contactNumber" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf069;" textWrap="true" class="fa label c-orange  t-25 w-20  m-5"></Label>
-                            <Label [text]="workshop.preRequisites" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf092;" textWrap="true" class="fa label c-orange t-25 w-20 m-5"></Label>
-                            <Label [text]="workshop.category" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-        
-                        <StackLayout orientation="horizontal">
-                            <Label text="&#xf041;" class="fa c-orange t-25 label w-20 m-5"></Label>
-                            <Label [text]="workshop.city" textWrap="true" class="label t-17  m-5 detailText"></Label>
-                        </StackLayout>
-                    </StackLayout>
-                </StackLayout>
-              </StackLayout>
-              <StackLayout *ngIf="noPastWorkshops">
-                <FlexboxLayout flexDirection="column" class="p-10 m-t-20">
-                  <!-- <Image src="~/images/noelements.png" class=" h-30 w-40"></Image> -->
-                  <Label text="You Have't attended any workshops Previously" textWrap="true" alignSelf="center" class=" m-t-30 q-f-m font-weight-bold "
-                    style="color:#989898;;"></Label>
-                </FlexboxLayout>
-              </StackLayout>
-          </ScrollView>
+            </TabView>
+        </DockLayout>
     </StackLayout>
-    </TabView>
-    </DockLayout>
-    </StackLayout>
-  </RadSideDrawer>
+</RadSideDrawer>

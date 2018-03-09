@@ -2,26 +2,27 @@
 <DockLayout stretchLastChild="true" class="background">
     <Label textWrap="true" dock="left" class="w-10"></Label>
     <Label textWrap="true" dock="right" class="w-10"></Label>
-    <Label textWrap="true" dock="top" class="h-15"></Label>
-    <Label textWrap="true" dock="bottom" class="h-15"></Label>
+    <Label textWrap="true" dock="top" class="h-10"></Label>
+    <Label textWrap="true" dock="bottom" class="h-10"></Label>
     <GridLayout>
-        <ScrollView>
-            <StackLayout margin="10" verticalAlignment="center">
-                <StackLayout class="form" padding="15" backgroundColor="#FFFFFF">
-                    <StackLayout class="input-field customform">
-                        <Label text="Email" class="label font-weight-bold m-b-5"></Label>
-                        <TextField class="input" [(ngModel)]="userName"></TextField>
-                        <StackLayout class="hr-light"></StackLayout>
+            <StackLayout>
+                <Image src="~/images/icon2.png" class="w-80 m-l-2 m-t-5"></Image>
+                <StackLayout  verticalAlignment="center">
+                    <StackLayout class="form" padding="10" backgroundColor="#FFFFFF">
+                        <StackLayout class="input-field customform">
+                            <Label text="Email" class="label font-weight-bold m-b-5"></Label>
+                            <TextField class="input" [(ngModel)]="userName"></TextField>
+                            <StackLayout class="hr-light"></StackLayout>
+                        </StackLayout>
+                        <StackLayout class="input-field">
+                            <Label text="Password" class="label font-weight-bold m-b-5"></Label>
+                            <TextField secure="true" class="input" [(ngModel)]="password"></TextField>
+                            <StackLayout class="hr-light"></StackLayout>
+                        </StackLayout>
+                        <Button class="btn btn-primary w-full custombtn" text="Login" (tap)="login()"></Button>
+                        <Label [nsRouterLink]="['/register']" text="Not a member? Register here." class="text-center footnote"></Label>
                     </StackLayout>
-                    <StackLayout class="input-field">
-                        <Label text="Password" class="label font-weight-bold m-b-5"></Label>
-                        <TextField secure="true" class="input" [(ngModel)]="password"></TextField>
-                        <StackLayout class="hr-light"></StackLayout>
-                    </StackLayout>
-                    <Button class="btn btn-primary w-full custombtn c-bg-orange" text="Login" (tap)="login()"></Button>
-                    <Label [nsRouterLink]="['/register']" text="Not a member? Register here." class="text-center footnote"></Label>
                 </StackLayout>
             </StackLayout>
-        </ScrollView>
     </GridLayout>
 </DockLayout>

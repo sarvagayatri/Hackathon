@@ -10,9 +10,9 @@
             <drawer-content></drawer-content>
         </StackLayout>
     </ScrollView>
-    <DockLayout tkMainContent>
-        <StackLayout dock="top" style="background-color:#bb77ff;">
-            <StackLayout style="width:100;height:100; background-color:white; border-radius:100; padding:5">
+    <DockLayout tkMainContent class="background">
+        <StackLayout>
+            <StackLayout class="m-t-50" style="width:100;height:100; background-color:white; border-radius:100; padding:5">
                 <android>
                     <Label [text]="customer.name[0].toUpperCase()" textWrap="true" class="c-white q-f-m text-center t-30" style="width:93; padding-top:25;height:93; background-color:#8848cb; border-radius:85;"></Label>
                 </android>
@@ -20,12 +20,15 @@
                     <Label [text]="customer.name[0].toUpperCase()" textWrap="true" class="c-white q-f-m text-center t-30" style="width:93; height:93; background-color:#8848cb; border-radius:85;"></Label>
                 </ios>
             </StackLayout>
-            <Label [text]="customer.name" textWrap="true" class="q-f-l c-white text-center t-17 m-b-10"></Label>
-            <StackLayout class="hr-light"></StackLayout>
-            <Label [text]="customer.email" textWrap="true" class="q-f-l c-white t-15 m-10"></Label>
-            <StackLayout class="hr-light"></StackLayout>
-            <Label [text]="customer.mobileNumber" textWrap="true" class="q-f-m c-white t-15 m-10"></Label>
-            <StackLayout class="hr-light"></StackLayout>
+            <Label [text]="customer.name" textWrap="true" class="q-f-l  text-center c-white t-17 m-t-20"></Label>
+            <StackLayout>
+                <Label text="&#xf003;" class="fa t-25 c-blue text-center label  m-5"></Label>
+                <Label [text]="customer.email" textWrap="true" class="q-f-l text-center c-orange t-15"></Label>
+            </StackLayout>
+            <StackLayout>
+                <Label text="&#xf095;" class="fa t-25 c-blue text-center label m-5"></Label>
+                <Label [text]="customer.mobileNumber" textWrap="true" class="q-f-m text-center c-orange t-15"></Label>
+            </StackLayout>
         </StackLayout>
     </DockLayout>
 </RadSideDrawer>

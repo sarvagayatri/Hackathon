@@ -13,14 +13,31 @@
     <StackLayout tkMainContent>
         <GridLayout backgroundColor="#CCCCCC">
             <ScrollView>
-                <StackLayout margin="10" verticalAlignment="center">
+                <StackLayout verticalAlignment="center">
                     <StackLayout class="form customform" padding="15" backgroundColor="#FFFFFF">
-                        <StackLayout class="input-field">
-                            <Label text="Category" class="label font-weight-bold m-b-5"></Label>
-                            <TextField class="input" [text]="workshop.category" (tap)="showModal(2)"></TextField>
-                            <StackLayout class="hr-light"></StackLayout>
-                        </StackLayout>
+                        <FlexboxLayout justifyContent="space-between">
+                            <StackLayout class="input-field">
+                                <Label text="Category" class="label font-weight-bold m-b-5"></Label>
+                                <TextField class="input" [text]="workshop.category" (tap)="showModal(2)" hint="--Select Category--"></TextField>
+                                <!-- <StackLayout class="hr-light"></StackLayout> -->
+                                <!-- <GridLayout row="0" col="0" rows="auto" columns="*" horizontalAlignment="left" class="t-11 w-50 p-5 m-5" style="border-radius: 2; height:30;border-width:1;border-color:rgb(124, 124, 124);background-color:#fff;color:rgb(124, 124, 124)"
+                                    (tap)="showModal(2)">
+                                    <Label row="0" col="0" textWrap="false" [text]="workshop.category"></Label>
+                                    <Label row="0" col="1" text="&#xf078;" style="color:rgb(124, 124, 124)" class="fa text-right"></Label>
+                                </GridLayout> -->
+                            </StackLayout>
 
+                            <StackLayout class="input-field">
+                                <Label text="City" class="label font-weight-bold m-b-5"></Label>
+                                <TextField class="input" [(ngModel)]="workshop.city" (tap)="showModal(3)"></TextField>
+                                <!-- <StackLayout class="hr-light"></StackLayout> -->
+                                <!-- <GridLayout row="0" col="0" rows="auto" columns="*" horizontalAlignment="left" class="t-11 w-50 p-5 m-5" style="border-radius: 2; height:30;border-width:1;border-color:rgb(124, 124, 124);background-color:#fff;color:rgb(124, 124, 124)"
+                                    (tap)="showModal(3)">
+                                    <Label row="0" col="0" textWrap="false" [text]="workshop.city" (tap)="showModal(3)"></Label>
+                                    <Label row="0" col="1" text="&#xf078;" style="color:rgb(124, 124, 124)" class="fa text-right"></Label>
+                                </GridLayout> -->
+                            </StackLayout>
+                        </FlexboxLayout>
                         <StackLayout class="input-field">
                             <Label text="Title" class="label font-weight-bold m-b-5"></Label>
                             <TextField class="input" [(ngModel)]="workshop.title"></TextField>
@@ -38,11 +55,7 @@
                             <TextField class="input" [text]="( workshop.date | date_ddmmmyyyy) + '   ' + workshop.time" (tap)="showModal(1)"></TextField>
                             <StackLayout class="hr-light"></StackLayout>
                         </StackLayout>
-                        <StackLayout class="input-field">
-                            <Label text="City" class="label font-weight-bold m-b-5"></Label>
-                            <TextField class="input" [(ngModel)]="workshop.city" (tap)="showModal(3)"></TextField>
-                            <StackLayout class="hr-light"></StackLayout>
-                        </StackLayout>
+
 
                         <StackLayout class="input-field">
                             <Label text="Fee" class="label font-weight-bold m-b-5"></Label>

@@ -27,7 +27,7 @@ export class RegisterComponent {
         this.password = "test@123";
     }
     public ngOnInit() {
-        this.page.actionBarHidden = true;
+        // this.page.actionBarHidden = true;
     }
     public register() {
         if (this.validateSignUpDetails()) {

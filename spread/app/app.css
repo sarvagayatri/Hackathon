@@ -12,7 +12,7 @@ refer to http://docs.nativescript.org/ui/theme.
 @import 'nativescript-theme-core/css/core.light.css';
 
 .background {
-    background-image: url("res://screen1");
+    background-image: url("res://background1");
     /* background-image: url("res://screen"); */
     background-repeat: no-repeat;
     background-size:100% 100%;
@@ -28,17 +28,17 @@ refer to http://docs.nativescript.org/ui/theme.
   }
   .big-icon {
     font-size: 44px;
-    color: #fc7b5c;
+    color: #32b5ec;
 }
 ActionBar {
-    background-color: #fc7b5c;
+    background-color: #32b5ec;
     color: white;
     font-family: "FallingSkyLight";
     font-weight: bold;
 }
 
 .submitBtn {
-    background-color: #2196f3;
+    background-color: #32b5ec;
     border-radius: 20;
     height: 35;
     color: white;
@@ -93,7 +93,7 @@ ActionBar {
         /* height: 160-dip; */
         /* background-color: #2a2c43; */
         background-color: #2196f3;
-        /* background-image: url("res://icon"); */
+        background-image: url("res://background1");
         margin-bottom: 7-px;
         background-repeat: no-repeat;
     }
@@ -127,7 +127,7 @@ ActionBar {
     font-size: 18;
 }
 .listDate{
-    background-color: #fc7b5c;
+    background-color: #32b5ec;
     color: white;
     font-family: "FallingSkyLight";
     font-weight: bold;
@@ -135,14 +135,14 @@ ActionBar {
     text-align: center;
 }
 .listMonth{
-    background-color: #fc7b5c;
+    background-color: #32b5ec;
     color: white;
     font-family: "FallingSkyLight";
     font-size: 21;
     text-align: center;
 }
 .listTime{
-    background-color: #fc7b5c;
+    background-color: #32b5ec;
     color: white;
     font-family: "FallingSkyLight";
     font-size: 19;
@@ -172,6 +172,12 @@ ActionBar {
     .c-bg-orange{
         background-color: #fc7b5c;
     }
+    .c-bg-light{
+        background-color: #ecf0f1;
+    }
+    .c-bg-white{
+        background-color: white;
+    }
     .c-blue {
         color: #32b5ec;
     }
@@ -190,6 +196,12 @@ ActionBar {
     .br-1 {
         border-radius: 1;
     }
+    .br-10 {
+        border-radius: 10;
+    }
+    .br-15 {
+        border-radius: 15;
+    }
     .w-10{
         width:10%;
     }
@@ -202,8 +214,14 @@ ActionBar {
 .w-20{
     width:20%;
 }
+.w-50{
+    width:50%;
+}
 .h50{
     height: 50;
+}
+.h-10{
+    height:10%;
 }
 .h-15{
     height:15%;
@@ -220,8 +238,20 @@ ActionBar {
 .m-20{
     margin: 20;
 }
+.m-l-2{
+    margin-left: 2;
+}
 .m-l-5{
     margin-left: 5;
+}
+.m-t-10{
+    margin-top: 10;
+}
+.m-t-20{
+    margin-top: 20;
+}
+.m-t-50{
+    margin-top: 50;
 }
 .m-b-2{
     margin-bottom: 2;

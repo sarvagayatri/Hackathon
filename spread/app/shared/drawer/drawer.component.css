@@ -1,16 +1,31 @@
 
+
 .homeIcon{
-         color:#fc7b5c;
+         color:#9758d9;
 }
-.workshop{
-         color:#fc7b5c;
+.profilIcon{
+         color:#8cc15c;
+}
+.registerIcon{
+         color:#32afbe;
+}
+.myworkShopIcon{
+        color:#663399;
+}
+.interestedIcon{
+          color:rgb( 243, 156, 18 );;
+}
+.referrelIcon{
+          color:rgb( 13, 156, 18 );;
 }
 .logoutIcon{
-         color:#fc7b5c;
+         color:orchid;
 }
-
+.privacyIcon{
+         color:tomato;
+}
 .profileIcon{
-    color:#fc7b5c;
+    color:#fff;
     margin-right: 10;
     font-size: 15;
     padding: 10;
